@@ -1,0 +1,262 @@
+  /*Page control  */
+  
+ 
+.profile-orders{
+  display: none;
+}
+.profile-adderss{
+  display: none;
+}
+.profile-wishlist{
+  min-height: 400px;
+  display: none;
+}
+
+
+
+
+  /* Address */
+  .profile-adderss{
+    display: block;
+    min-height: 400px;
+  }
+.addAdressForm{
+    display: none;
+}
+.addressEdit{
+    display: none;
+}
+
+/* Address end */
+
+
+
+
+
+  
+  /* Profile Page */
+  .tab-pane{
+    background-color: #99999936;
+    min-height: 400px;
+    border-radius: 10px;
+   }
+   .profile-img{
+    width: 160px;
+    height: 160px;
+    background-color: #363636;
+    border-radius: 50%;
+   }
+   .profile-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+   object-position: top;
+   border-radius: 50%;
+   border: 1px solid rgb(59, 53, 65);
+  
+   }
+   .ctr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+   .user-edit input{
+    width: 200px;
+    outline: none;
+    color:grey;
+   }
+   .mini-profile{
+   width: 90%; height: 100px; 
+   border-radius: 0px;
+   background-color: #ca2c6e00;
+   }
+   .img-mini-pro{
+    display: flex;
+    margin-top: 9px;
+    justify-content: center;
+   }
+   .crm-pro-btn{
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    color: white;
+   }
+  
+  
+  
+  
+  
+  
+  
+  .tab-content{
+    background-color: #9999993b;
+    padding-bottom: 50px;
+    padding-top: 30px;
+    border-radius: 15px;
+    margin-top: 10px;
+    
+  }
+  .headiing{
+  font-weight: 600;
+  }
+  .add-new-div button{
+    padding: 3px 8px;
+    width: 130px;
+    font-weight: 700;
+    border: none;
+    color: white;
+  }
+  
+  .coolinput {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    position: static;
+    max-width: 240px;
+  }
+  
+  .coolinput label.text {
+    font-size: 13px;
+    color: #818CF8;
+    font-weight: 700;
+    position: relative;
+    top: 14px;
+    margin: 0 0 0 7px;
+    padding: 0 3px;
+    background: #e8e8e8;
+    width: fit-content;
+  }
+  .add-text{
+    width: 620px;
+    border: 2px #818CF8 solid;
+    background: #e8e8e8;
+    border-radius: 5px;
+    padding: 11px 10px;
+    font-size: 13px;
+    font-weight: 500;
+    outline: none;
+  }
+  .coolinput input[type=text].input {
+    padding: 11px 10px;
+    font-size: 13px;
+    border: 2px #818CF8 solid;
+    border-radius: 5px;
+    background: #e8e8e8;
+    font-weight: 500;
+  }
+  .add-adderss-row{
+    border: 2px #818CF8 solid;
+    border-radius: 5px;
+    padding: 5px;
+    padding-bottom: 30px;
+  }
+  .coolinput input[type=text].input:focus {
+    outline: none;
+  }
+  
+  .show-adress{
+    border: 2px #818CF8 solid;
+    border-radius: 5px;
+    padding: 5px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+  }
+  
+  .profile-orders{
+    min-height: 350px;
+  }
+  .profile-order-headline{
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 10px;
+  }
+  .order-img-view{
+    width: 150px;
+    height: 150px;
+    background-color: #818CF8;
+  }
+  .order-img-view img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .t-bolde{
+  font-weight: 500;
+  }
+  .t-boldee{
+    font-size: 17px;
+    font-weight: 500;
+  }
+  .cancel-order-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cancel-order-btn button{
+    border: 1px solid sandybrown;
+    background-color: #36363600;
+    font-weight: 700;
+    padding: 5px 10px;
+    transition: 1s;
+  }
+  .cancel-order-btn button:hover{
+    background-color: #36363659;
+  }
+  .wallet-img{
+    height: 100px;
+    width: 100px;
+    padding: 20px;
+    
+  }
+  .wallet-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .waallet-details{
+    padding-top: 20px;
+  }
+  .waallet-details span{
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .waallet-details p{
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+  }
+  .wallet{
+    margin-top: 30px;
+    /* background-color: #36363656; */
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    color: black;
+  }
+  .add-money-section button{
+    border: none;
+    background-color: #363636;
+    color: aliceblue;
+    border-radius: 5px;
+    
+  }
+  .addding-the-wallet input{
+    border-bottom: 2px solid #363636;
+    outline: none;
+    font-size: 17px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: 600;
+  }
+
+  .addding-the-wallet button{
+    border: none;
+    background-color: #363636;
+    color: aliceblue;
+    border-radius: 5px;
+  }
+  .addding-the-wallet{
+    display: none;
+  }
+  .c-red{
+    color: red;
+  }

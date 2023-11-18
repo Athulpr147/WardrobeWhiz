@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Login and Registration Form in HTML & CSS | CodingLab </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="/css/login_Reg.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+    <div class="close-button" id="close-button">
+        <a href="/"><i class="fas fa-times"></i></a>
+     </div>
+  <div class="container">
+    
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <img src="/uploads/<%= banner.main %>" alt="#">
+        <div class="text">
+            <span class="text-1"> Explore Trendsetting Styles <br> and Accessories </span>
+            <span class="text-2">Let's get started</span>
+        </div>
+      </div>
+      <div class="back">
+        <img class="backImg" src="/uploads/<%= banner.main %>" alt="">
+        <div class="text">
+          <span class="text-1"> Explore Trendsetting Styles <br> and Accessories </span>
+          <span class="text-2">Let's get started</span>
+          <!-- Explore Trendsetting Styles and Accessories at WardrobeWhiz! -->
+        </div>
+      </div>
+    </div>
+    <div class="forms">
+        <div class="form-content">
+
+            <!-- Login Form -->
+          <div class="login-form">
+            <div class="title">Login</div>
+          <form action="/login" method="post">
+            <% if (validate) { %>
+              <div class="signup-mge" style="color: red;"><%= validate %></div>
+             <% } %>
+            <div class="input-boxes">
+                <span class="validation-error" id="login-email-error-msg"></span> 
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text" placeholder="Enter your email" name="email" oninput="login_email_validation()" id="login_email">
+              </div>
+              <span class="validation-error" id="login-password-error-msg"></span>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Enter your password" name="password" id="login_password" oninput="login_password_validation()">
+              </div>
+              <div class="text"><a type="button" href="/forgot_password_">Forgot password?</a></div>
+              <div class="button input-box">
+                <input type="submit" value="Submit" id="login_submit">
+              </div>
+              <!-- <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div> -->
+              <div class="text sign-up-text">Don't have an account? <label> <a href="/register">Signup now</a></label></div>
+              <br>
+              <div class="text sign-up-text"><label> <a href="/">Go Home</a></label></div>
+              
+              
+
+            </div>
+        </form>
+      </div>
+
+      <!-- Registration Form -->
+        <div class="signup-form">
+          <div class="title">Signup</div>
+        <form action="/register" method="post">
+            <div class="input-boxes">
+                <span class="validation-error" id="reg-name-valid-err"></span>
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Enter name" id="registeration_name" oninput="reg_name_error_msg()" name="name">
+                
+            </div>
+            
+            <span class="validation-error" id="reg-email-valid-err"></span>
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text" placeholder="Enter email" id="registeration_email" oninput="reg_email_error_msg()" name="email">
+                
+            </div>
+            <span class="validation-error" id="reg-phone-valid-err"></span>
+              <div class="input-box">
+              
+                <i class="fas fa-phone-alt" style="color: #7928e2;"></i>
+                <input type="number" placeholder="Enter mobile number" id="registeration_phone" oninput="reg_phone_error_msg()" name="phone">
+                
+              </div>
+              <span class="validation-error" id="reg-password-valid-err"></span>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Enter password" id="registeration_password" oninput="reg_password_error_msg()" name="password">
+                <input type="text">
+                
+              </div>
+              <div class="button input-box">
+                <input type="submit" value="submit" id="registeration_submit">
+              </div>
+              <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+            </div>
+      </form>
+    </div>
+    </div>
+    </div>
+  </div>
+  
+  
+  </div>
+
+  <script src="js\preventFormSubbmission.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<!-- Forgot password ond OTP js -->
+<!-- <script>
+const phoneRadio = document.getElementById('phoneRadio');
+    const emailRadio = document.getElementById('emailRadio');
+    const phoneInput = document.getElementById('phoneInput');
+    const emailInput = document.getElementById('emailInput');
+
+    phoneRadio.addEventListener('change', function() {
+      if (phoneRadio.checked) {
+        phoneInput.classList.remove('hidden');
+        emailInput.classList.add('hidden');
+      }
+    });
+
+    emailRadio.addEventListener('change', function() {
+      if (emailRadio.checked) {
+        emailInput.classList.remove('hidden');
+        phoneInput.classList.add('hidden');
+      }
+    });
+
+    const enterNumberOTP = document.getElementById('enterNumberOTP')
+    const loading = document.getElementById('loading')
+    const otpEnterField = document.getElementById('otp-enter-field')
+    const OTPsucess = document.getElementById('otp-sucess')
+    const otpField = document.getElementById('otp').value
+    enterNumberOTP.addEventListener('click',(event)=>{
+        loading.style.display = 'block'
+        OTPsucess.innerHTML = "OTP Sending successfull"
+        otpEnterField.style.display = 'block'
+        
+    })
+</script> -->
+  <script src="/js/validation.js"></script>
+</html>

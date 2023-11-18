@@ -1,0 +1,13 @@
+.edit-products-profile{
+    display: none;
+}
+.view-products-profile{
+    display: flex;
+}
+.addnewProduct_page{
+    display: none;
+}
+
+.view-mens-products , .view-womens-products, .view-kids-products{
+    display: none;
+}

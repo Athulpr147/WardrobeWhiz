@@ -1,0 +1,129 @@
+<%- include('../partials/mainHead') %>
+
+<div class="all">
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg expolre-nav p-lg-4" id="nav_bar" style="position: fixed; border-bottom: 2px solid palevioletred; ">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="/">WardrobeWhiz</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ">
+          <li class="nav-item">
+            <a class="nav-link text-white ms-4 navlink-left" aria-current="page" id="womens" href="/getProducts?catagorie=womens&sort=newFirst">WOMENS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white ms-3 navlink-left" id="mens" href="/getProducts?catagorie=mens&sort=newFirst">MENS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white ms-3 navlink-left" id="kids" href="/getProducts?catagorie=kids&sort=newFirst">KIDS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white ms-3 navlink-left" id="all" href="/getProducts?catagorie=all&sort=newFirst">EXPLORE</a>
+  
+          </li>
+          
+        </ul>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+          
+              <a class="nav-link text-white navlink-right me-3" href="/profile" >Profile</a>
+            </li>
+            
+            <li class="nav-item">
+                          <a class="nav-link text-white navlink-right" href="/cart">MyCart <span><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></span></a>
+
+            </li>
+            
+          </ul>
+      </div>
+    </div>
+  </nav>
+<!-- Navbar end -->
+<!-- header? -->
+<header class="explore-header container-fluid">
+
+</header>
+<!-- Header end -->
+<main class="row container-fluid bg-aqawhite">
+   <aside class="col-3 explore-aside">
+     <div class="aside-inner-div">
+       <div class="row d-flex">
+        <div class="col-12 p-1 ms-4 mt-3">
+            <h3>Catagories</h3>
+        </div>
+        <div class="col-12 p-1 ms-4 cata-select-radio">
+
+            <input type="radio" id="all-collection" name="options"  value="option1" >
+            <label for="all-collection">All Collection</label><br>
+
+            <input type="radio" id="mens-collection" name="options" value="option1">
+            <label for="mens-collection">Mens Collection</label><br>
+        
+            <input type="radio" id="womens-collection" name="options" value="option2">
+            <label for="womens-collection">Womens Collection</label><br>
+        
+            <input type="radio" id="kids-collection" name="options" value="option3">
+            <label for="kids-collection"> Kids Collection</label><br>
+
+        </div>
+        <div class="col-12"></div>
+       </div>
+     </div>
+   </aside>
+   <aside class="col-3 explore-aside-cover"></aside>
+   <section class="col-9 explore-main">
+    <div class="row">
+        <div class="col-12 d-flex head-filter">
+            <span  class="sort-by p-1 ms-1 f-bold-1 ">Sort By ></span>
+            <span id="sort-popularity" class="popularity p-1 ms-3 f-bold-2 ">Popularity</span>
+            <span id="sort-low-high" class="low-high p-1 ms-3 f-bold-2 ">Price Low-High</span>
+            <span id="sort-high-low" class="high-low p-1 ms-3 f-bold-2 ">Price High-Low</span>
+            <span id="sort-new-first" class="new-first p-1 ms-3 f-bold-2 ">Newest First</span>
+        </div>
+       
+   
+    </div>
+
+    <div class="row p-3  bg-primary"> <div class="col-12 " ></div></div>
+    
+    <div class="loader-container justify-content-center" id="loader" style=" width: 100%; height: 450px;">
+      <div class="loader" style="display: block;"></div>
+    </div>
+    <div class="explore-products row " id="productCard-explore">
+     
+ 
+        <!-- Products card will display -->
+        
+        
+
+        
+        
+    </div>
+    
+    <div class="row">
+      <div id="pagination-container" class="col-12 mt-5 mb-5 d-flex justify-content-center pagination-container"></div>
+     
+    </div>
+   </section>
+</main>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/explore.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

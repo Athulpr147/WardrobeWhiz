@@ -1,0 +1,181 @@
+.explore-header{
+    width: 100%;
+    height: 90px;
+    display: flex;
+}
+
+.explore-aside{
+    min-height: 550px;
+    position: fixed;
+   
+}
+.explore-aside-cover{
+    min-height: 550px;
+
+    border-right: 2px solid rgb(180, 77, 129);
+}
+.expolre-nav{
+    background-color: rgb(180, 77, 129);
+    z-index: 10;
+    width: 100%;
+    color: black;
+    height: 90px;
+    
+}
+.head-filter{
+ cursor: pointer;
+ /* border-bottom: 1px solid rgb(180, 77, 129);
+ border-left: 1px solid rgb(180, 77, 129); */
+ position: fixed;
+ background-color: antiquewhite;
+ transition: 2s;
+
+ z-index: 1;
+}
+.head-filter-cover{
+    background-color: white;
+}
+.f-bold-2{
+    font-weight: 600;
+}
+.f-bold-1{
+  font-weight: 700;
+}
+.active-sort{
+    border-bottom: 3px solid grey;
+    
+}
+.active{
+    background-color: #aa8f8f;
+    color: white;
+}
+.explore-card-main{
+    height: 320px;
+    width: 220px;
+    background-color: antiquewhite;
+    padding:5px;
+    margin: 14px;
+    margin-top: 20px;
+    position: relative;
+}
+.all{
+    background-color: #e0e0e0; 
+}
+.bg-aqawhite{
+    background-color: #e0e0e0; 
+}
+.card-discount{
+    position: absolute;
+    min-height: 20px;
+    border-radius: 0px 10px 10px 0px;
+    left: 0;
+    top: 5px;
+    background-color: red;
+}
+.card-discount span{
+padding: 10px;
+color: white;
+
+font-weight: 700;
+}
+.explore-products{
+    margin-top: 50px;
+    display: flex;
+    /* padding: 10px; */
+    
+}
+.explore-img{
+    height: 200px;
+    width: 100%;
+   
+}
+.explore-img img{
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+.explore-card-brand{
+    font-size: 15px;
+    font-weight: 700;
+    color: #aa8f8f;
+}
+.explore-card-proName{
+    white-space: nowrap;         /* Prevent text from wrapping */
+    overflow: hidden;           /* Hide overflowing text */
+    text-overflow: ellipsis;    /* Add ellipsis at the end */
+    width: 200px; 
+    color: black;
+    font-weight: 700;
+}
+.card-cut-price{
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: line-through;
+    color:  darkblue;
+}
+.card-offer-price{
+    font-weight: 800;
+    color:  darkblue;
+
+}
+.aside-inner-div{
+    width: 100%;
+    height: 500px;
+    background-color: antiquewhite;
+}
+.explore-aside{
+padding: 20px 30px;
+background-color: #e0e0e0;
+}
+
+.cata-select-radio input {
+    margin-top: 15px;
+    cursor: pointer;
+    outline: none;
+    width: 30px;
+}
+.cata-select-radio label{
+    cursor: pointer;
+    font-weight: 500;
+}
+/* .sort-by   {
+
+}
+.popularity{
+
+}
+.low-high  {
+
+}
+.high-low  {
+
+}
+.new-first {
+
+} */
+.pagination-container button{
+ border: 2px solid pink;
+ min-width: 50px;
+ margin: 0px 1px;
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+  }
+
+  .loader {
+    border: 8px solid #f3f3f3; /* Light gray border */
+    border-top: 8px solid rgb(207, 47, 95); /* Blue border */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite; /* Spin animation */
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WardrobeWhiz</title>
+    <link rel="icon" href="/img/fav-icon.png">
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;600;800&family=Quicksand:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- font  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootsrap-css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+     <!--Custom-css-->
+     <!-- TEMPLate/? --> <link rel="stylesheet" href="/temp/css/style.css">
+    
+     <link rel="stylesheet" href="/css/mediaQ.css">
+     <link rel="stylesheet" href="/css/modal.css">
+     <link rel="stylesheet" href="/css/footer.css">
+     <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="/css/profile.css">
+  
+</head>
+  <body>
+<%- include('../partials/navbar') %>
+
+<div class="page-wrapper">
+        
+
+    <main class="main">
+        <!-- <div class="page-header text-center" style="background-image: url('')"> -->
+            <!-- <div class="container"> -->
+                <!-- <h1 class="page-title">WardrobeWhiz<span>Welcome <%#= userDetails.name %></span></h1> -->
+            <!-- </div>End .container -->
+        <!-- </div>End .page-header -->
+        <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
+            
+        </nav><!-- End .breadcrumb-nav -->
+
+        <div class="page-content">
+            <div class="dashboard">
+                <div class="container">
+                    <div class="row">
+
+                        <aside class="col-md-4 col-lg-3 profile-aside">
+                            <ul class="nav nav-dashboard flex-column mb-3 mb-md-0" role="tablist">
+                                <li> <div class="mini-profile" >
+                                    <div class="row">
+                                        <div class="col-5 img-mini-pro">
+                                            <div style="width: 80px; height: 80px; background-color: rgb(101, 134, 134); border-radius: 50%;">
+                                            <img style="width: 100%; height: 100%; object-fit: cover;opacity: 80%; border-radius: 50%;" src="/img/profile-pic-male_4811a1.svg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-7">
+                                            <h6 style="margin-top: 40px;"><b>Hello </b><%= userDetails.name %></h6>
+                                        </div>
+                                    </div>
+                                </div></li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="dashboard-link" href="" data-toggle="tab" role="tab" aria-controls="tab-dashboard" aria-selected="true">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="order-link" data-toggle="tab" href=""  role="tab" aria-controls="tab-orders" aria-selected="false">Orders</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="wishlist-link" data-toggle="tab" href="" role="tab" aria-controls="tab-downloads" aria-selected="false">Wishlist</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="address-link" data-toggle="tab" href="" role="tab" aria-controls="tab-address" aria-selected="false">Adresses</a>
+                                </li>
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" id="tab-account-link" data-toggle="tab" href="#tab-account" role="tab" aria-controls="tab-account" aria-selected="false">Account Details</a>
+                                </li> -->
+                                <li class="nav-item">
+                                    <form action="/logout" method="post">
+                                        <a href="#" class="nav-link" onclick="document.forms[0].submit();">Sign Out</a>
+                                    </form>
+                                    
+                                </li>
+                            </ul>
+                        </aside><!-- End .col-lg-3 -->
+
+                        <div class="col-md-8 col-lg-9">
+                            <!-- <div class="tab-content"> -->
+
+
+
+         <!-- Profile  -->
+     <div class="profile-dashboard tab-content" id="profile-dashboard" >
+                                <div class="row container-fluid">
+
+
+                                    <div class="col-6">
+                                        <div class="row container-fluid">
+                                            <div class="col-12">
+                                                <div class="wallet row" style="height: 100px; ">
+                                                   <div class="col-4">
+                                                    <div class="wallet-img"><img src="/img/wallet.png" alt=""></div>
+                                                   </div>
+                                                   <div class="col-8">
+                                                    <div class="row waallet-details">
+                                                        <div class="col-12"><span>Wallet balance</span></div>
+                                                        <div class="col-12"><p>₹<% if (wallet) { %>
+                                                            <%= wallet.balance %>
+                                                        <% }else{ %>
+                                                            0<% } %>.00
+                                                        </p></div>
+                                                    </div>
+                                                   </div>
+                                                   <div  class="col-12 add-money-section justify-content-end mt-1" id="add-money-section"><button id="add-money">Add Money</button></div>
+                                                   <div class="col-12"></div>
+                                                   <div class="col-12 mt-1 justify-content-center addding-the-wallet" id="addding-the-wallet" style="display: none;"> 
+                                                    <div class="row">
+                                                        <div class="col-12"><p id="add_money_err">Min-₹100 </p></div>
+                                                        <div class="col-12">
+                                                            <input type="number" oninput="clear()" id="wallet_amount" class="m-0">
+                                                        </div>
+                                                        <div class="col-12 mt-1">
+                                                            <button id="add-money-submit" class="m-1">Add</button>
+                                                            <button type="button" id="adding-money-cancel" class="m-1">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                </div>
+                                                    <!-- <div class="col-12">
+                                                        <div class="row">
+                                                            <div class="col-12"><p style="text-decoration: underline;">Recent transations</p></div>
+                                                            
+                                                        
+                                                            
+                                                        </div>
+                                                    </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-6">
+                                        <form action="/profile_edit/<%= userDetails._id %>?_method=PUT" method="post">
+                                        <div class="row user-edit">
+                                            <div class="col-12"><h4 class="fw-bold pt-3">Personal Information</h4></div>
+
+                                            <p><span id="err-msg" style="color: red;"></span></p>
+                                            <div class="col-2 pt-2"><b>Name</b></div>
+                                                <div class="col-10 pt-2 d-flex"><input id="name-input" name="name" type="text" class="me-3" value="<%= userDetails.name %>" disabled> <i id="name-edit-icon" class="fa-sharp fa-solid fa-pen-to-square" style="color: #1159d4;"></i>
+                                                <button type="submit" class="display-none crm-pro-btn bg-primary" id="name-edit-btn">Edit</button>
+                                                <button type="button" class="ms-2 display-none crm-pro-btn bg-secondary" id="name-edit-cancel-btn">Cancel</button></div>
+
+                                            <div class="col-2 pt-2"><b>Email</b></div>
+                                            <div class="col-10 pt-2 d-flex"><input id="email-input" name="email" type="text" class="me-2" value="<%= userDetails.email %>" disabled> <i id="email-edit-icon" class="fa-sharp fa-solid fa-pen-to-square" style="color: #1159d4;"></i>
+                                                <button type="submit" class="display-none crm-pro-btn bg-primary" id="email-edit-btn">Edit</button>
+                                                <button type="button" class="ms-2 display-none crm-pro-btn bg-secondary" id="email-edit-cancel-btn">Cancel</button></div>
+
+                                            <div class="col-2 pt-2 "><b>Phone</b></div>
+                                            <div class="col-10 pt-2 d-flex"><input id="phone-input" name="phone" maxlength="10" type="text" class="me-2" value="<%= userDetails.phone %>" disabled> <i id="phone-edit-icon" class="fa-sharp fa-solid fa-pen-to-square" style="color: #1159d4;"></i>
+                                               
+                                                <button type="submit" class="display-none crm-pro-btn bg-primary" id="phone-edit-btn">Edit</button>
+                                                <button type="button" class="ms-2 display-none crm-pro-btn bg-secondary" id="phone-edit-cancel-btn">Cancel</button></div>
+                                            <!-- </form> -->
+                                            
+                                            
+                                        </div>
+                                        </form>
+                                        <div class="row">
+                                            <div class="col-12 ctr mt-5"> <form action="/forgot_password_" method="get"><button class="btn btn-primary">Change Password</button></form> </div>
+                                        </div>
+                                    </div>
+                                 </div>
+    </div>     <!-- Profile end  -->
+
+
+     <!-- Orders -->
+    <div class="profile-orders tab-content " id="profile-orders">
+     <h1 class="profile-order-headline">Orders</h1>
+     <div class="container-fluid m-0"> 
+        
+           <% userOrders.forEach(element => { %>
+            <div class="row p-4 mb-4" style="background-color: white;">
+
+           
+
+                <div class="col-8 p-4">
+                    
+                <!-- Product card -->
+    
+                    <% element.products.forEach(products => { %>
+                        <div class="row mb-3">
+                            <div class="col-4 d-flex  justify-content-center" style="align-items: center;">
+                                <div class="order-img-view"><img src="/uploads/<%= products.productId.image[0] %>" alt=""></div>
+                            </div>
+                            <div class="col-8">
+                                <div class="row">
+                                    <div class="col-12"><span class="t-bolde"><%= products.productId.name %></span></div>
+                                    <div class="col-12"><span class="t-bolde"><%= products.productId.brand %></span></div>
+                                    <div class="col-12"><span class="t-bolde"><%= products.size %></span></div>
+                                    <div class="col-12"><span class="t-bolde"><%= products.productId.color %></span></div>
+        
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+    
+                    <!-- Product card end -->
+    
+    
+                </div>
+                
+                
+    
+                <!-- Pricce details -->
+                <div class="col-4">
+                    <div class="row d-flex" style="display: flex; align-items: center; padding-bottom: 10px;">
+                        <div class="col-12 d-flex justify-content-center">
+                            <% if (element.status == 'Cancel') { %>
+                                <span class="t-bolde">Status : <span style="font-weight: 800; font-size: 16px; color: red;">Canceled</span> </span>
+                            <% }else if(element.status == 'Pending'){ %>
+                                <span class="t-bolde">Status : <span style="font-weight: 800; font-size: 16px; color: orange;"><%= element.status %></span></span>
+                            <% }else{ %>
+                                <span class="t-bolde">Status : <span style="font-weight: 800; font-size: 16px; color: blue;"><%= element.status %></span></span>
+                                <% } %>
+                        </div>
+                        <div class="col-12 d-flex justify-content-center">
+                            <span class="t-bolde">Order ID <%= element.orderId %></span>
+                        </div>
+                        <div class="col-12 d-flex justify-content-center">
+                            <% if (element.refunded) { %>
+                                <p class="t-bolde">Refund Completed</p>
+                               <% } %>
+                        </div>
+                        
+                        <div class="col-12 d-flex justify-content-between">
+                            <span class="t-bolde">Total Price</span><span class="t-bolde"><%= element.totalAmount %></span>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between">
+                            <span class="t-bolde">Discounted Price</span><span class="t-bolde"><%= element.finalPrice %></span>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between">
+                            <span class="t-bolde">Coupon Used</span><span class="t-bolde"><%= element.coupon %></span>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between">
+                            <span class="t-bolde">Delivery Price</span><span class="t-bolde">Free</span>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between">
+                            <span class="t-boldee">Total Paid</span><span class="t-boldee"><%= element.finalPrice %></span>
+                        </div>
+                        <hr>
+                        <div class="col-12 d-flex justify-content-between">
+                            <span class="t-bolde">Payment Type</span><span class="t-bolde"><%= element.paymentMethod %></span>
+                        </div>
+                        <div class="col-12 d-flex justify-content-between">
+                            <span class="t-bolde" style="font-size: 13px; font-weight: 700;">PaymentID:</span><span style="font-size: 13px;" class="t-bolde"><%= element.paymentId %></span>
+                        </div>
+                    </div> 
+                </div>
+    
+                <!-- Price details End -->
+                <!-- Address -->
+                <div class="col-9">
+                   
+                    <div class="row" style="background-color: #d9c8ae46;">
+                        <div class="col-12"><span style="font-weight: 700; font-size: 16px;">Delivery Address</span></div>
+                        <% if (element.orderAddress) { %>
+                            <div class="col-12"><span style="font-weight: 600; font-size: 15px;"><%= element.orderAddress.name %> - <%= element.orderAddress.phone %></span></div>
+                            <div class="col-12"><span style="font-weight: 500;"><%= element.orderAddress.address %>,<%= element.orderAddress.city %>,<%= element.orderAddress.state %>,<%= element.orderAddress.country %>, PIN -<%= element.orderAddress.pincode %></span></div>
+                        <% } %>
+                       
+                    </div>
+                </div>
+                 <!-- Address end-->
+                 <div class="col-3  cancel-order-btn <% if ( element.status == 'Cancel' || element.status =='Delivered') { %>
+                    d-none
+                     <% } %>">
+                    <a href="/cancelorder/<%= element._id %>"><button>Cancel Order</button></a>
+                 </div>
+                 <% if ( element.status == 'Delivered' ) { %>
+                 <div class="col-3  cancel-order-btn <% if(element.return) {%>
+                    d-none
+                    <% } %>">
+                    <a href="/returnorder/<%= element._id %>"><button>Return Order</button></a>
+                 </div>
+                 <div class="col-3 mt-3"><% if (element.refund === true) { %>
+                    <p class="<% if (element.refunded) { %>
+                     d-none
+                    <% } %>">Refund request send</p>
+                   <% } %></div>
+                 <% } %>
+                 
+
+                </div>
+    
+           <% }) %>
+
+        
+        </div>
+     </div>
+
+    <!-- Wishlist -->
+    <div class="profile-wishlist tab-content " id="profile-wishlist">
+      <% if (wishlist.length === 0) { %>
+         <h4 class="ms-4">No Wishlists</h4>
+        <% }else{ %>
+            <h4 class="ms-4"> wishlist</h4>
+                <% } %>
+
+        <% if (wishlist) { %>
+             
+            <% wishlist.forEach(wishlist => { %>
+             
+           
+          <!-- Card Start -->
+          <div class="row p-3 mb-3 w-60 m-5 f-flex" style="background-color: #ffffff; border-radius: 10px; box-shadow:  -9px -9px 17px #d9c8ae,
+          9px 9px 17px #ffffec;">
+          
+              <div class="col-3 cart-img" style="display: flex; align-items: center;">
+                  <div><img src="/uploads/<%= wishlist.productId.image[0] %>" alt=""></div>
+              </div>
+    
+              <div class="col-9 cart-contents">
+                  <div class="col"><h5><a href=""><%= wishlist.productId.name %></a></h5></div>
+                  <div class="col"><span class="cart-prize me-2">₹<%= wishlist.productId.price %>.00</span><span class="cart-offer-price me-3">₹<%= wishlist.productId.discountPrice %>.00</span><span class="cart-product-discount"><%= wishlist.productId.discount %>% Off</span></div>
+                  <div class="col"><span class="cart-size">Size : <%= wishlist.size %></span></div>
+                  <div class="col"><span class="cart-size">Qty : <%= wishlist.quantity %></span></div>
+                  <div class="col mb-2"><span class="cart-color">Color : <%= wishlist.color %></span></div>
+                  <div class="col ">
+                    <form action="/addcart/<%= wishlist.productId._id %>/true" method="post">
+                        <input class="display-none" type="text" value="<%= wishlist.color %>" name="color">
+                        <input class="display-none" type="text" name="size" value="<%= wishlist.size %>">
+                        <input class="display-none" type="number" name="quantity" value="<%= wishlist.quantity %>">
+                    <button type="submit" class="me-4">Add to Cart</button>
+                    <button type="button"><a href="/removeWishlist/<%= wishlist._id %>">Remove</a></button></div></form>
+              </div> 
+              
+          </div>
+          <!-- Card End -->
+          <% }) %>
+          <% } %>
+       </div> <!-- Wishlist  end-->
+
+    <!-- Address -->
+    <div class="profile-adderss tab-content p-5 " id="profile-adderss" style="display: none;">
+      <h4>Address Book</h4>
+      <div class="row add-new-div pt-2 ">
+        <!-- Add new btn -->
+        <div class="col-12 " id="add-address-btn"><span class="headiing">Add new Adderss? : </span><button class="bg-primary">Add New</button></div>
+       <!-- New address Form -->
+       <div class="addAdressForm" id="addAdressForm">
+        
+        <div class="col-12 p-4 d-flex " >
+            <form action="/add_address" method="post">
+          <div class="row d-flex add-adderss-row ">
+            <div class="col-12"><span class="headiing"> ADD A NEW ADDRESS</span></div>
+           
+          <div class="col-6 ">
+            <div class="coolinput">
+            <label for="input" class="text">Name:</label>
+            <input type="text" id="address-name" placeholder="Write here..." name="name"  class="input">
+        </div>
+    </div>
+
+    <div class="col-6 ">
+        <div class="coolinput">
+        <label for="input" class="text">Phone</label>
+        <input type="text" id="address-phone" placeholder="Write here..." name="phone"  class="input">
+    </div>
+</div>
+          
+
+          <div class="col-6 ">
+            <div class="coolinput">
+            <label for="input" class="text">Pincode</label>
+            <input type="text" id="address-pincode" placeholder="Write here..." name="pincode"  class="input">
+        </div>
+    </div>
+
+    <div class="col-6 ">
+        <div class="coolinput">
+        <label for="input" class="text">City</label>
+        <input type="text" id="address-city" placeholder="Write here..." name="city"  class="input">
+    </div>
+</div>
+
+<div class="col-12 ">
+    <div class="coolinput">
+    <label for="input" class="text">Address</label>
+    <textarea  name="address" id="address-address" cols="122" placeholder="Write here..."  rows="4" class="add-text"></textarea>
+    
+</div>
+</div>
+
+<div class="col-6 ">
+    <div class="coolinput">
+    <label for="input" class="text">State</label>
+    <input type="text" id="address-state" placeholder="Write here..." name="state"  class="input">
+</div>
+</div>
+
+<div class="col-6 ">
+    <div class="coolinput">
+    <label for="input" class="text">Country</label>
+    <input type="text" id="address-country" placeholder="Write here..." name="country"  class="input" >
+</div>
+</div>
+<div class="col-12 mt-3"><span id="profile_address_message" style="color: red; font-weight: 600;"> .</span></div> 
+<div class="col-6 mt-1">
+    <button style="padding: 4px 5px;" id="address_submit" class="bg-primary">Submit</button>
+    <button type="button"  style="padding: 4px 1px;" class="bg-secondary ms-3" id="cancelAdd">Cancel</button>
+</div>
+
+
+        </div></form>
+
+
+          </div>
+       </div>
+        
+
+        
+
+        <!-- Adderss card -->
+        <div class="showAddress" id="showAddress">
+            <% address.forEach(address => { %>
+                <div class="show-adress mt-3">
+                    <div class="row pt-2">
+                      
+                       
+                            <div class="col-6"><span class="fs-3 fw-bold"><%= address.name %></span><span class="fs-3 ms-4 fw-bold"><%= address.phone %></span></div>
+                            <div class="col-6 d-flex justify-content-end">
+                                <button class=" bg-danger me-2 " style="color: white; font-weight: 500; border: none;" id="deleteAdd"><a style="color: aliceblue;" href="/deleteAddress/<%= address._id %>">Delete</a></button>
+                                <Button style="color: white; font-weight: 500; border: none;" class=" bg-primary me-3 editBtn" id="editBtn">Edit</Button></div>
+                            <div class="col-12"><span class="fs-4 fw-normal"> <%= address.address %>,<%= address.city %>,<%= address.state %>,<%= address.country %>, PIN-<%= address.pincode %> </span></div>
+                           
+                       </div>
+
+                       <div class="addressEdit" id="addressEdit">
+                        <div class="col-12 p-4 d-flex " >
+                            <form action="/editAddress/<%= address._id %>?_method=PUT" method="post">
+                          <div class="row d-flex add-adderss-row ">
+                            <div class="col-12"><span class="headiing"> UPDATE ADDRESS</span></div>
+                
+                          <div class="col-6 ">
+                            <div class="coolinput">
+                            <label for="input" class="text">Name:</label>
+                            <input type="text" value="<%= address.name %>" required name="name" class="input">
+                        </div>
+                    </div>
+                
+                    <div class="col-6 ">
+                        <div class="coolinput">
+                        <label for="input" class="text">Phone</label>
+                        <input type="text" value="<%= address.phone %>" required name="phone" class="input">
+                    </div>
+                </div>
+                          
+                
+                          <div class="col-6 ">
+                            <div class="coolinput">
+                            <label for="input" class="text">Pincode</label>
+                            <input type="text" value="<%= address.pincode %>" required name="pincode" class="input">
+                        </div>
+                    </div>
+                
+                    <div class="col-6 ">
+                        <div class="coolinput">
+                        <label for="input" class="text">City</label>
+                        <input type="text" value="<%= address.city %>" required name="city" class="input">
+                    </div>
+                </div>
+                
+                <div class="col-12 ">
+                    <div class="coolinput">
+                    <label for="input" class="text">Address</label>
+                    <textarea  name="address" id="dd" cols="122" rows="3" required class="add-text"><%= address.address %></textarea>
+                    
+                </div>
+                </div>
+                
+                <div class="col-6 ">
+                    <div class="coolinput">
+                    <label for="input" class="text">State</label>
+                    <input type="text" value="<%= address.state %>" required name="state" class="input">
+                </div>
+                </div>
+                
+                <div class="col-6 ">
+                    <div class="coolinput">
+                    <label for="input" class="text">Country</label>
+                    <input type="text" value="<%= address.country %>" required name="country" class="input" >
+                </div>
+                </div>
+                <div class="col-6 mt-4">
+                    <button style="padding: 4px 5px;" class="bg-primary">Confirm Edit</button>
+                    <button type="button" style="padding: 4px 1px;" class="bg-secondary ms-3" id="cancelEdit">Cancel</button>
+                </div>
+                
+                
+                        </div></form>
+                
+                
+                          </div>
+                       </div>
+        
+                </div><% }) %>
+        </div>
+    </div>
+
+      </div>
+
+    </div> <!-- Orders  end-->
+    </div> <!--  end -->
+
+
+                                                
+                            <!-- </div> -->
+                        </div><!-- End .col-lg-9 -->
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .dashboard -->
+        </div><!-- End .page-content -->
+
+
+    </main><!-- End .main -->
+
+
+    
+</div><!-- End .page-wrapper -->
+
+
+
+
+
+
+
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<!-- Temp -->
+<!-- Plugins JS File -->
+<script src="/temp/js/jquery.min.js"></script> 
+<script src="/temp/js/bootstrap.bundle.min.js"></script>
+<script src="/temp/js/jquery.hoverIntent.min.js"></script>
+<script src="/temp/js/jquery.waypoints.min.js"></script>
+<script src="/temp/js/superfish.min.js"></script>
+<script src="/temp/js/owl.carousel.min.js"></script> 
+<!-- Main JS File -->
+
+<!-- <script src="/temp/main.js"></script> -->
+<!-- Custom JS -->
+<script src="/js/profile.js"></script>
+<script src="/js/add_money_to_wallet.js"></script>
+<script src="/js/address_profile_validation.js"></script>
+
+  </body>
+</html>

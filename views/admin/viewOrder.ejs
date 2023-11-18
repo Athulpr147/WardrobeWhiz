@@ -1,0 +1,362 @@
+<%- include('../partials/adminHead') %>
+
+  <!-- Nepcha Analytics (nepcha.com) -->
+  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+  <!-- <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+</head> -->
+
+<body class="g-sidenav-show  bg-gray-200">
+
+  <!-- Side Selectors -->
+  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+    <div class="sidenav-header">
+      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
+        <img src="/img/logo/transparent-white.png" class="navbar-brand-img h-100" alt="main_logo">
+        <span class="ms-1 font-weight-bold text-white">WardrobeWhiz</span>
+      </a>
+    </div>
+    <hr class="horizontal light mt-0 mb-2">
+    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+      <ul class="navbar-nav">
+         <!-- //Side Dashboard button -->
+        <li class="nav-item">
+          <a class="nav-link text-white " href="/admin/">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">dashboard</i>
+            </div>
+            <span class="nav-link-text ms-1">Dashboard</span>
+          </a>
+        </li>
+         <!-- //Side Customers button -->
+        <li class="nav-item">
+          <a class="nav-link text-white  " href="/admin/users">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">table_view</i>
+            </div>
+            <span class="nav-link-text ms-1">Manage Users</span>
+          </a>
+        </li>
+        <!-- //Side Products button -->
+        <li class="nav-item">
+          <a class="nav-link text-white " href="/admin/products">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">table_view</i>
+            </div>
+            <span class="nav-link-text ms-1">Products</span>
+          </a>
+        </li>
+         <!-- //Side Orders button -->
+        <li class="nav-item">
+          <a class="nav-link text-white active bg-gradient-primary" href="/admin/orders">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">receipt_long</i>
+            </div>
+            <span class="nav-link-text ms-1">Orders</span>
+          </a>
+        </li>
+         <!-- //Side Coupons button -->
+        <li class="nav-item">
+          <a class="nav-link text-white " href="/admin/coupons">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center"> 
+              <i class="material-icons opacity-10">view_in_ar</i>
+            </div>
+            <span class="nav-link-text ms-1">Manage Coupons</span>
+          </a>
+        </li>
+         <!-- //Side -Sales- button -->
+        <li class="nav-item">
+          <a class="nav-link text-white " href="/admin/sales_report">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+            </div>
+            <span class="nav-link-text ms-1">Sales Report</span>
+          </a>
+        </li>
+         <!-- //Side -- button -->
+        <li class="nav-item">
+          <a class="nav-link text-white " href="/admin/banner">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">notifications</i>
+            </div>
+            <span class="nav-link-text ms-1">Manage Banner</span>
+          </a>
+        </li>
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Admin</h6>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="/admin/profile">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">person</i>
+            </div>
+            <span class="nav-link-text ms-1">Profile</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white type="button" data-bs-toggle="modal" data-bs-target="#signOutModal">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">login</i>
+            </div>
+            <span class="nav-link-text ms-1">Sign Out</span>
+          </a>
+        </li>
+        <!-- logout Modal -->
+<div class="modal fade" id="signOutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign Out</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       Are you confirm to Logout
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
+        <form action="/admin/signout" method="post">
+          <button type="submit" class="btn" style="background-color: rgb(92, 84, 209); color: white;">Logout</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+      </ul>
+    </div>
+    <!-- <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+      <div class="mx-3">
+         </div>
+    </div> -->
+  </aside>
+
+
+
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+    <div class="container-fluid py-1 px-3">
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+           <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Admin</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a href="/admin/orders">Orders</a> /Order Details</li>
+          </ol>
+          
+          <h5 class="font-weight-bolder mb-0">Order Details</h5>
+        </nav>
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+            <!-- <div class="input-group input-group-outline">
+              <label class="form-label">Search Customers</label>
+              <input type="text" id="searchData" class="form-control" oninput="searchData()" style="width: 200px;">
+            </div> -->
+          </div>
+
+
+          <ul class="navbar-nav  justify-content-end">
+           <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </a>
+            </li> 
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <div class="container-fluid py-4 view-products " id="view-products-page" >
+      <% if (order) { %>
+      
+      <div class="container-fluid p-4" >
+        <div class="row">
+          <div class="col-12 pb-0">
+      
+            <h5>Order ID: <%= order.orderId %></h5>
+          </div>
+        </div>
+        <hr>
+        <!-- First section -->
+        <div class="row">
+          <div class="col-7">
+              <div class="row">
+                <!-- product card -->
+                <% order.products.forEach(element => { %>
+                <div class="col-3">
+                  <div class="viewOrder-img">
+                    <img src="/uploads/<%= element.productId.image[0] %>" alt="#">
+                  </div>
+                </div>
+                <div class="col-9">
+                  <div class="viewOrder-content">
+                    <h4><%= element.productId.name %></h4>
+                    <h5>Price : ₹<%= order.totalAmount %>.00</h5>
+                    <h5>Selled Price : ₹<%= order.finalPrice %>.00</h5>
+                    <p><span>Size : <%= element.size %></span><span class="ms-4 "> <%= element.color %></span></p>
+                  </div>
+                </div>
+                <% }) %>
+                <!-- product card end -->
+      
+              </div>
+          </div>
+          <div class="col-5 px-5 py-2" style="background-color: rgba(0, 255, 255, 0.247);">
+            <div class="card-text order-price-chart">
+             
+                <div class="d-flex py-2 justify-content-between">
+                    <span class="cart-price">Price (<%= order.quantity %> items)</span>
+                    <span class="cart-price" >₹ <%= order.totalAmount %>.00</span>
+                </div>
+                <div class="d-flex py-2  justify-content-between">
+                    <span class="cart-price">Offer Discount</span>
+                    <span class="cart-price">- ₹ <%= order.offerDiscount %>.00</span>
+                </div>
+                <div class="d-flex py-2 justify-content-between">
+                  <span class="cart-price">Delivery Charges</span>
+                  <span class="cart-price">Free</span>
+              </div>
+              <div class="d-flex py-2  justify-content-between">
+                <span class="cart-price">Coupon Used </span>
+                <span class="cart-price"> <%= order.coupon %></span>
+            </div>
+            <div class="d-flex py-2  justify-content-between">
+              <span class="cart-price">Coupon Discount</span>
+              <span class="cart-price">- ₹ <%= order.couponDiscount %>.00</span>
+          </div>
+                
+                <div class="d-flex py-2 justify-content-between">
+                    <span class="cart-price">Total Saving</span>
+                    <span class="cart-price">- ₹ <%= order.totalDiscount %>.00</span>
+                </div>
+                <div class="d-flex py-2 justify-content-between">
+                    <span class="cart-totalprice">Total Amount Paid</span>
+                    <span class="cart-totalprice">₹ <%= order.finalPrice %>.00</span>
+                </div>
+                
+            </div> 
+          </div>
+         </div>
+        <!-- First section -->
+        <hr>
+        <!-- Section 2 -->
+       
+        <div class="row">
+          <div class="col-12"><h6>Order Status : <span> <%= order.status %></span><% if (order.refunded) { %>
+           (Refunded)
+          <% } %></h6></div>
+
+          <% if (order.status == 'Cancel') { %>
+           <!-- if order is canceled and payment is online -->
+           <% if(order.refund){ %>
+            <div class="row mt-3">
+              <div class="col-12"><span>Refund Completed</span></div>
+            </div>
+            <% }else{ %>
+              <% if (order.refunded) { %>
+                <div class="row mt-3 ">
+                  <div class="col-12">Refund Completed</div>
+                </div>
+               <% } else { %>
+                <div class="row mt-3 ">
+                  <div class="col-12"><span>Refund Money</span></div>
+                  <div class="col-12"><span><form action="/admin/refund/<%= order._id %>" method="post"><input type="number" readonly value="<%= order.finalPrice %>" name="amount"></span> : <button style="border: 2px solid blue; color: blueviolet;font-weight: 600; padding: 3px 6px;">Refund</button></form></div>
+                </div>
+              <% } %>
+         
+          <% } %>
+          <% } else if(order.status == 'Delivered') {%>
+            <% if (order.return) { %>
+              <% if(order.refunded) {%>
+                  <div class="row mt-3">
+                    <div class="col-12"><span>Refund Completed</span></div>
+                  </div>
+                <% } else { %> 
+              <div class="row mt-3">
+                <div class="col-12"><span>Customer requested to return the order</span></div>
+                <div class="col-12"><form action="/admin/refund/<%= order._id %>" method="post"><h6>Refund amount : <input type="number" style="text-align: center;" name="amount" readonly value="<%= order.finalPrice %>"> <button style="border: 2px solid blue; color: blueviolet;font-weight: 600; padding: 3px 6px;">Refund</button></form></h6></div>
+              </div>
+              <% } %>
+            <% }else{ %>
+            <div class="row mt-3">
+              <div class="col-6"><span>Order Delivered</span></div>
+            </div>
+              <% } %>
+            
+              
+
+              <% } else { %>
+               
+
+            <% if (order.status) { %>
+             
+            <% } %>
+          <!-- if order is active  -->
+          <div class="row mt-3 ">
+            <div class="col-3"> <a href="/admin/changestatus/<%= 'Pending' %>/<%= order._id %>"><button class="status-btn" style="background-color: rgb(206, 153, 61);">Mark Order pending</button></a></div>
+            <div class="col-3"> <a href="/admin/changestatus/<%= 'Confirm' %>/<%= order._id %>"><button class="status-btn" style="background-color: rgb(73, 73, 201);">Mark Order Confirm</button></a></div>
+            <div class="col-3"> <a href="/admin/changestatus/<%= 'Cancel' %>/<%= order._id %>"><button class="status-btn" style="background-color: rgb(223, 59, 59) ;">Cancel Order</button></a></div>
+            <div class="col-3"> <a href="/admin/changestatus/<%= 'Delivered' %>/<%= order._id %>"><button class="status-btn" style="background-color: rgb(52, 197, 52);">Mark Order Delivered</button></a></div>
+          </div>
+        <% } %>
+          
+      
+        </div>
+        <!-- Section 2 end -->
+        <hr>
+        <!-- Section 3 -->
+        <div class="row py-2">
+          <div class="col-12"><h6>Customer Details</h6></div>
+          <div class="col-12"> Name : <%= order.userId.name %></div>
+          <div class="col-12"> Email : <%= order.userId.email %></div>
+        </div>
+        <div class="row">
+          <div class="col-12"><h6>Shipping address</h6></div>
+          <div class="row">
+            <% if (order.orderAddress) { %>
+              <div class="col-12"><span><%= order.orderAddress.name %></span> <span><%= order.orderAddress.phone %></span></div>
+              <div class="col-12"><span><%= order.orderAddress.address %>, <%= order.orderAddress.city %>, <%= order.orderAddress.state %></span></div>
+              <div class="col-12"><span><%= order.orderAddress.country %>, PIN-<%= order.orderAddress.pincode %></span></div>
+           <% } else { %>
+            <div class="col-12">User has deleted the Address</div>
+              <% } %>
+              
+          </div>
+        </div>
+        <!-- Section 3 end -->
+        <hr>
+        <!-- section 4  -->
+        <div class="row">
+          <div class="col-12"><h6>Payment Method</h6></div>
+          <div class="row">
+            <div class="col-12"><span>Payment Type : <%= order.paymentMethod %></span></div>
+            <div class="col-12"><span>Payment ID : <%= order.paymentId %></span></div>
+          </div>
+        </div>
+        <!-- section 4 ends -->
+      
+      
+      </div>
+      <% }else{ %>
+        <div class="container-fluid p-4" >
+          <div class="row">
+            <div class="col-12 d-flex justify-content-center "><h5>No orders</h5></div>
+          </div>
+        </div>
+        <% } %>
+      
+    </div>
+            
+      
+
+         
+
+  </main>
+
+ 
+
+  <%- include('../partials/adminFoot') %>

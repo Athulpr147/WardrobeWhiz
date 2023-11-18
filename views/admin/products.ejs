@@ -1,0 +1,665 @@
+<%- include('../partials/adminHead') %>
+
+<body class="g-sidenav-show  bg-gray-200">
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+      <div class="sidenav-header">
+        <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+        <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
+          <img src="/img/logo/transparent-white.png" class="navbar-brand-img h-100" alt="main_logo">
+          <span class="ms-1 font-weight-bold text-white">WardrobeWhiz</span>
+        </a>
+      </div>
+      <hr class="horizontal light mt-0 mb-2">
+      <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+        <ul class="navbar-nav">
+           <!-- //Side Dashboard button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">dashboard</i>
+              </div>
+              <span class="nav-link-text ms-1">Dashboard</span>
+            </a>
+          </li>
+           <!-- //Side Users button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/users">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">table_view</i>
+              </div>
+              <span class="nav-link-text ms-1">Manage Users</span>
+            </a>
+          </li>
+          <!-- //Side Products button -->
+         <li class="nav-item">
+          <a class="nav-link text-white active bg-gradient-primary" href="/admin/products">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">table_view</i>
+            </div>
+            <span class="nav-link-text ms-1">Products</span>
+          </a>
+        </li>
+           <!-- //Side Orders button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/orders">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">receipt_long</i>
+              </div>
+              <span class="nav-link-text ms-1">Orders</span>
+            </a>
+          </li>
+           <!-- //Side Coupons button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/coupons">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">view_in_ar</i>
+              </div>
+              <span class="nav-link-text ms-1">Manage Coupons</span>
+            </a>
+          </li>
+           <!-- //Side Dashboard button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/sales_report">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+              </div>
+              <span class="nav-link-text ms-1">Sales Report</span>
+            </a>
+          </li>
+          <!-- side Banner button  -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/banner">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">notifications</i>
+              </div>
+              <span class="nav-link-text ms-1">Manage Banner</span>
+            </a> 
+          </li>
+          <li class="nav-item mt-3">
+            <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Admin </h6>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/profile">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">person</i>
+              </div>
+              <span class="nav-link-text ms-1">Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white " type="button" data-bs-toggle="modal" data-bs-target="#signOutModal">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">login</i>
+              </div>
+              <span class="nav-link-text ms-1">Sign out</span>
+            </a>
+            <!-- logout Modal -->
+<div class="modal fade" id="signOutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign Out</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       Are you confirm to Logout
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
+        <form action="/admin/signout" method="post">
+          <button type="submit" class="btn" style="background-color: rgb(92, 84, 209); color: white;">Logout</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+        
+      </div>
+    </aside>
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+      <!-- Navbar -->
+      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+        <div class="container-fluid py-1 px-3">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+              <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Admin</a></li>
+              <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Products</li>
+            </ol>
+            <h6 class="font-weight-bolder mb-0">Products management</h6>
+          </nav>
+          <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+              <div class="input-group input-group-outline" >
+                <label class="form-label">Search Products</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <ul class="navbar-nav  justify-content-end">
+              <li class="nav-item d-flex align-items-center">
+                <!-- <a class="btn btn-outline-primary btn-sm mb-0 me-3" id="add-product-btn" >Add Products</a> -->
+                <button class="btn btn-outline-primary btn-sm mb-0 me-3" id="add-product-btn"> Add Products</button>
+              </li>
+              
+              <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                  <div class="sidenav-toggler-inner">
+                    <i class="sidenav-toggler-line"></i>
+                    <i class="sidenav-toggler-line"></i>
+                    <i class="sidenav-toggler-line"></i>
+                  </div>
+                </a>
+              </li>
+              
+              
+             
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+
+      <!-------------------- Showing All Products ------------------------->
+      <div class="container-fluid py-4 view-products " id="view-products-page" >
+        <!-- Product Catagories -->
+        <header class="card-header">
+          <div class="row align-items-center">
+              
+
+
+              <div class="dropdown col-4 me-auto">
+                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Catagories
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" id="all-cata-btn">All</a></li>
+                  <li><a class="dropdown-item" id="mens-cata-btn">Mens Collection</a></li>
+                  <li><a class="dropdown-item" id="womens-cata-btn">Womens Collection</a></li>
+                  <li><a class="dropdown-item" id="kids-cata-btn">Kids Collection</a></li>
+                </ul>
+              </div>
+              <div class="col-4 d-flex justify-content-center align-items-center">
+                  
+                  <h4 id="catagorie-title">All Products</h4>
+              </div>
+              <div class="col-4">
+              </div>
+          </div>
+      </header> <!-- card-header end// -->
+        <div class="card mb-4" style="background-color: #f3dfe6;">
+          <!-- All products -->
+          <div class="card-body " id="view-all-products">
+
+            <!-- All Product -->
+            <% if(allProducts.length === 0 ){ %>
+              
+             <h4 class="per">No Products</h4>
+       
+                <%}else{  %>
+                <% allProducts.forEach(element => { %>
+                  <article class="itemlist mt-2" style="background-color: #ebc9d5; padding: 5px; ">
+                    <div class="row ">
+                        
+            
+                        <div class="col-5 per">
+                            <a class="itemside" href="/admin/products/viewProduct/<%= element._id %>">
+                                <div class="left">
+                                    <img src="\uploads\<%=element.image[0] %>" class="img-sm img-thumbnail" alt="Item" style="height: 70px;" >
+                                </div>
+                                <div class="info">
+                                    <h6 class="mb-0"><%= element.name %></h6>
+                                </div>
+                            </a>
+                        </div>
+            
+                        <div class="col-2 per"> <span><b>₹</b><%= element.price %>.00</span> </div>
+            
+                        <div class="col-2 per ">
+                            <span><b>Qty:</b><%= element.stocks %></span>
+                        </div>
+            
+                        <div class="col-1 per">
+                            <span><%= element.category %> Collection</span>
+                        </div>
+            
+                        <div class="col-2 per ">
+                            
+                              <% if ( element.blocked ) { %>
+                               
+                                  Deleted
+                               
+                                <% } else { %>
+                                 
+                                    Active
+                                 
+                              <% } %>
+                            
+                        </div>
+                    </div> <!-- row .// -->
+            </article>
+                <% }) %>
+                
+              <% } %>
+
+          </div> 
+
+          <!-- Mens Products -->
+          <div class="card-body view-mens-products" id="view-mens-products">
+            <% if(mensCatagory.length === 0 ){ %>
+              
+              <h4>No Products</h4>
+                
+       
+                <%}else{  %>
+                <% mensCatagory.forEach(element => { %>
+                  <article class="itemlist mt-2" style="background-color: #ebc9d5; padding: 5px; ">
+                    <div class="row ">
+                        
+            
+                        <div class="col-5 per">
+                            <a class="itemside" href="/admin/products/viewProduct/<%= element._id %>">
+                                <div class="left">
+                                    <img src="\uploads\<%=element.image[0] %>" class="img-sm img-thumbnail" alt="Item" style="height: 70px;" >
+                                </div>
+                                <div class="info">
+                                    <h6 class="mb-0"><%= element.name %></h6>
+                                </div>
+                            </a>
+                        </div>
+            
+                        <div class="col-2 per"> <span><b>₹</b><%= element.price %>.00</span> </div>
+            
+                        <div class="col-2 per ">
+                            <span><b>Qty :</b><%= element.quantity %></span>
+                        </div>
+            
+                        <div class="col-1 per">
+                            <span><%= element.category %> Collection</span>
+                        </div>
+            
+                        <div class="col-2 per ">
+                          <% if ( element.blocked ) { %>
+                            
+                              Deleted
+                            
+                            <% } else { %>
+                                Active
+                            
+                          <% } %>
+                        </div>
+                    </div> <!-- row .// -->
+            </article>
+                <% }) %>
+                
+              <% } %>
+          </div>
+
+          <!-- Womens Products -->
+          <div class="card-body view-womens-products" id="view-womens-products"">
+            <% if(womensCatagory.length === 0 ){ %>
+              
+              <h4 class="per">No Products</h4>
+       
+                <%}else{  %>
+                <% womensCatagory.forEach(element => { %>
+                  <article class="itemlist mt-2" style="background-color: #ebc9d5; padding: 5px; ">
+                    <div class="row ">
+                        
+            
+                        <div class="col-5 per">
+                            <a class="itemside" href="/admin/products/viewProduct/<%= element._id %>">
+                                <div class="left">
+                                    <img src="\uploads\<%=element.image[0] %>" class="img-sm img-thumbnail" alt="Item" style="height: 70px;" >
+                                </div>
+                                <div class="info">
+                                    <h6 class="mb-0"><%= element.name %></h6>
+                                </div>
+                            </a>
+                        </div>
+            
+                        <div class="col-2 per"> <span><b>₹</b><%= element.price %>.00</span> </div>
+            
+                        <div class="col-2 per ">
+                            <span><b>Qty :</b><%= element.quantity %></span>
+                        </div>
+            
+                        <div class="col-1 per">
+                            <span><%= element.category %> Collection</span>
+                        </div>
+            
+                        <div class="col-2 per ">
+                          <% if ( element.blocked ) { %>
+                            
+                              Deleted
+                            
+                            <% } else { %>
+                             
+                                Active.
+                            
+                          <% } %>
+                        </div>
+                    </div> <!-- row .// -->
+            </article>
+                <% }) %>
+                
+              <% } %>
+          </div>
+
+          <!-- Kids Products -->
+          <div class="card-body view-kids-products" id="view-kids-products">
+            <% if(kidsCatagory.length === 0 ){ %>
+              
+              <h4 class="per">No Products</h4>
+       
+                <%}else{  %>
+                <% kidsCatagory.forEach(element => { %>
+                  <article class="itemlist mt-2" style="background-color: #ebc9d5; padding: 5px; ">
+                    <div class="row ">
+                        
+            
+                        <div class="col-5 per">
+                            <a class="itemside" href="/admin/products/viewProduct/<%= element._id %>">
+                                <div class="left">
+                                    <img src="\uploads\<%=element.image[0] %>" class="img-sm img-thumbnail" alt="Item" style="height: 70px;" >
+                                </div>
+                                <div class="info">
+                                    <h6 class="mb-0"><%= element.name %></h6>
+                                </div>
+                            </a>
+                        </div>
+            
+                        <div class="col-2 per"> <span><b>₹</b><%= element.discountPrice %>.00</span> </div>
+            
+                        <div class="col-2 per ">
+                            <span><b>Qty :</b><%= element.quantity %></span>
+                        </div>
+            
+                        <div class="col-1 per">
+                            <span><%= element.category %> Collection</span>
+                        </div>
+            
+                        <div class="col-2 per ">
+                          <% if ( element.blocked ) { %>
+                            
+                              Deleted
+                            
+                            <% } else { %>
+                          
+                                Active 
+                              
+                          <% } %>
+                        </div>
+                    </div> <!-- row .// -->
+            </article>
+                <% }) %>
+                
+              <% } %>
+             </div>
+   
+         </div> <!-- card end// -->
+       </div>
+   <!-- Showing All product ended -->
+
+
+
+        <!-- add new Products?  new-->
+        <div class="container-fluid py-4 view-products-profile addnewProduct_page" id="add-products-page">
+
+          <form action="/admin/addProduct" method="post" enctype="multipart/form-data">
+          <div style="width: 100%;">
+            <div class="row">
+              
+                <!-- Section 1 -->
+                <div class="col-8 ">
+                    <div class="row product-add-input">
+                <div class="col-4 ps-5 pt-5 pb-2"><h4>Product name </h4></div>
+                <div class="col-8 ps-5 pt-5 pb-2">: <input type="text" id="proname"  placeholder="Product name" name="name"><br><span class="err" id="errName"></span></div>
+                <div class="col-4 ps-5 pt-2 pb-2"><h5>Brand</h5></div>
+                <div class="col-8 ps-5 pt-2 pb-2">: <input type="text" id="probrand"  placeholder="Product brand" name="brand"><br><span class="err" id="errBrand"></span></div>
+                <div class="col-4 ps-5 pt-2 pb-2"><h5>₹ Price</h5></div>
+                <div class="col-8 ps-5 pt-2 pb-2">: <input oninput="discountCalculation()" type="number" id="proprice"  placeholder="Product Price" name="price"><br><span class="err" id="errPrice"></span></div>
+              
+        
+                
+                <div class="col-4 ps-5 pt-2 pb-2"><h5>Category</h5></div>
+                <div class="col-8 ps-5 pt-2 pb-2">: 
+                    <% if (!catagories) { %>
+                      <select id="productCatagorie" name="category" >
+                        <option value="Default">No Catagories</option>
+                      </select>
+                    <% } else{%>
+                      <select id="productCatagorie" name="category" >
+                       <% catagories.forEach(element => { %>
+                        <option value="<%= element.name %>"><%= element.name %></option>
+                       <% }) %>
+                        
+                      </select>
+                      <% } %>
+
+
+
+                      <br><span class="err" id="errCata"></span>
+
+                </div>
+                <div class="col-4 ps-5 pt-2 pb-2"><h5>Color</h5></div>
+                <div class="col-8 ps-5 pt-2 pb-2">: <input type="text" id="color"  placeholder="Product Color" name="colors"><br><span class="err" id="errColor"></span></div>
+                <div class="col-4 ps-5 pt-2 pb-2"><h5>Quantity</h5></div>
+                <div class="col-8 ps-5 pt-2 pb-2">: <input type="number" id="qty"  placeholder="Quantity" name="stocks"><br><span class="err" id="errQty"></span></div>
+                <div class="col-4 ps-5 pt-2 pb-2"><h5>Sub category</h5></div>
+                <div class="col-8 ps-5 pt-2 pb-2">: <select id="productSubCatagorie"  class="styled-select" name="sub_category" >
+                  <% if (subcatagory) { %>
+                    <% subcatagory.forEach(element => { %>
+                      <option value="<%= element.name %>"><%= element.name %></option>
+                    <% }) %>
+                  <% } %>
+                  
+                </select></div>
+                <div class="col-4 ps-5 pt-5 pb-2"><h4>Description </h4></div>
+                <div class="col-8 ps-5 pt-5 pb-2">: <textarea name="decription"  id="productDecription" rows="4" cols="40"></textarea><br><span id="errDecr"></span></div>
+                <div class="col-12 ps-5 pt-2 pb-2 d-flex "><h6 class="me-6">Sizes</h6><label for="size-s" class="size-s-labe;" id="size-s-labe"><span id="size-s-span" class="size-span">S</span></label>
+                                                                        <label for="size-m" id="size-labe;" id="size-m-label"><span id="size-m-span" class="size-span">M</span></label>
+                                                                        <label for="size-l" id="size-labe;" id="size-l"><span id="size-l-span" class="size-span">L</span></label>
+                                                                        <label for="size-xl" id="size-labe;" id="size-xl"><span id="size-xl-span" class="size-span">XL</span></label>
+                                                                        <label for="size-xxl" id="size-labe;" id="size-xxl"><span id="size-xxl-span" class="size-span">XXL</span></label>
+                                                                        <label for="size-xxxl" id="size-labe;" id="size-xxxl"><span id="size-xxxl-span" class="size-span">XXXL</span></label>
+                                                                        <input class="d-none" type="checkbox"  name="size[]" id="size-s" value="S">
+                                                                        <input class="d-none" type="checkbox"  name="size[]" id="size-m" value="M">
+                                                                        <input class="d-none" type="checkbox" checked  name="size[]" id="size-l" value="L">
+                                                                        <input class="d-none" type="checkbox"  name="size[]" id="size-xl" value="XL">
+                                                                        <input class="d-none" type="checkbox"  name="size[]" id="size-xxl" value="XXL">
+                                                                        <input class="d-none" type="checkbox"  name="size[]" id="size-xxxl" value="XXXL">
+                                                                      </div>
+                 <div class="col-12 ps-5 pt-2 pb-2"><p style="color: red; font-weight: 600;" id="add-prod-error"></p></div>
+                <div class="col-12 ps-5 pt-2 pb-2"><button class="btn btn-dark ps-5 pe-5" id="add-new-submitBtn">Add-product</button>
+                  <button type="button"  class="btn btn-outline-dark ms-5 " id="cancel-add-btn">Cancel</button></div>
+                    </div>
+                </div>
+
+
+                <!-- Section 2 -->
+                <div class="col-4 ">
+                    <div class="row upload-img">
+                    <div class="col-12 d-flex justify-content-center pt-4"><label for="img1"><div class="product-img-view-main"><img id="upload-img1" src="/img/upload.webp" alt="#" style="width: 100%;height: 100%; object-fit: cover;" > </div></label></div>
+                    <div class="col-4 d-flex  pt-2"><label for="img2"><div class="product-img-view"> <img id="upload-img2" src="/img/upload.webp" alt="#" style="width: 100%;height: 100%; object-fit: cover;" ></div></label></div>
+                    <div class="col-4 d-flex  pt-2"><label for="img3"><div class="product-img-view"> <img id="upload-img3" src="/img/upload.webp" alt="#" style="width: 100%;height: 100%; object-fit: cover;" ></div></label></div>
+                    <div class="col-4 d-flex  pt-2"><label for="img4"><div class="product-img-view"> <img id="upload-img4" src="/img/upload.webp" alt="#" style="width: 100%;height: 100%; object-fit: cover;" ></div></label></div>
+                    <div class="col-12"><input  type="file" id="img1" class="file-input" name="image" accept="image/*"></div>
+                    <div class="col-12"><input  type="file" id="img2" class="file-input" name="image"></div>
+                    <div class="col-12"><input  type="file" id="img3" class="file-input" name="image"></div>
+                    <div class="col-12"><input  type="file" id="img4" class="file-input" name="image"></div>
+                    
+                    
+                   
+                    </div>
+                    <div class="row">
+                      <div class="col-5 pt-5"><h5>Discount(%)</h5></div>
+                      <div class="col-6 pt-5"><h5> : <input maxlength="2" type="number" oninput="discountCalculation()" style="width: 140px; height: 40px; outline: none;" name="discount" placeholder="  In %" id="discount"></h5></div>
+                      <div class="col-5 pt-4"><h5>FinalPrize </h5></div>
+                      <div class="col-6 pt-4"><h5> : ₹<span id="showPrice">000</span>.00 </h5></div>
+                      <div class="col d-none"><input  type="text" style="width: 140px; height: 40px;" value="Prize" id="discountedPrize" name="discountPrice" ></div>
+                    </div>
+                    
+                  
+                    
+
+
+                </div>
+
+            </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-8"></div>
+        <div class="col-4">
+          <h6>Add new Subcatagory</h6>
+          <div class="col-12 m-2"><button type="button" id="newCataBtn"> Add new Subcatagory </button></div>
+        <!-- <form action="/admin/new_subCatagories" method="post"> -->
+          <div class="col-12 m-2 newCata_input" style="display: none;"><input name="name" class=""  type="text" id="cataInput"></div>
+        <div class="col-12 m-2 newCataButtons" style="display: none;"><button id="catafetchBtn">Add</button> <button type="button" id="cataInputCancel">Cancel</button></div>
+         <p id="errr"></p>
+        <!-- </form> -->
+        </div>
+      </div>
+          
+        </div>
+        <!-- Add new Product End -->
+            
+      
+      
+
+    </main>
+
+
+    <div class="fixed-plugin">
+      <a class="fixed-plugin-button text-dark position-fixed px-3 py-2 d-none">
+        <i class="material-icons py-2">settings</i>
+      </a>
+      <div class="card shadow-lg">
+        <div class="card-header pb-0 pt-3">
+          <div class="float-start">
+            <h5 class="mt-3 mb-0">Material UI Configurator</h5>
+            <p>See our dashboard options.</p>
+          </div>
+          <div class="float-end mt-4">
+            <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+              <i class="material-icons">clear</i>
+            </button>
+          </div>
+          <!-- End Toggle Button -->
+        </div>
+        <hr class="horizontal dark my-1">
+        <div class="card-body pt-sm-3 pt-0">
+          <!-- Sidebar Backgrounds -->
+          <div>
+            <h6 class="mb-0">Sidebar Colors</h6>
+          </div>
+          <a href="javascript:void(0)" class="switch-trigger background-color">
+            <div class="badge-colors my-2 text-start">
+              <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
+            </div>
+          </a>
+          <!-- Sidenav Type -->
+          <div class="mt-3">
+            <h6 class="mb-0">Sidenav Type</h6>
+            <p class="text-sm">Choose between 2 different sidenav types.</p>
+          </div>
+          <div class="d-flex">
+            <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark" onclick="sidebarType(this)">Dark</button>
+            <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
+            <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
+          </div>
+          <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
+          <!-- Navbar Fixed -->
+          <div class="mt-3 d-flex">
+            <h6 class="mb-0">Navbar Fixed</h6>
+            <div class="form-check form-switch ps-0 ms-auto my-auto">
+              <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
+            </div>
+          </div>
+          <hr class="horizontal dark my-3">
+          <div class="mt-2 d-flex">
+            <h6 class="mb-0">Light / Dark</h6>
+            <div class="form-check form-switch ps-0 ms-auto my-auto">
+              <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
+            </div>
+          </div>
+          <hr class="horizontal dark my-sm-4">
+          <a class="btn bg-gradient-info w-100" href="https://www.creative-tim.com/product/material-dashboard-pro">Free Download</a>
+          <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard">View documentation</a>
+          <div class="w-100 text-center">
+            <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/material-dashboard on GitHub">Star</a>
+            <h6 class="mt-3">Thank you for sharing!</h6>
+            <a href="https://twitter.com/intent/tweet?text=Check%20Material%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
+              <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/material-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
+              <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+     const catafetchBtn = document.getElementById('catafetchBtn')
+const msg = document.getElementById('errr')
+catafetchBtn.addEventListener('click',(e)=>{
+  console.log(1)
+
+    const cataInput = document.getElementById('cataInput').value
+    console.log(2+""+cataInput)
+    if(cataInput.length === 0){
+        catafetchBtn.placeholder = 'Cant be empty'
+        msg.innerHTML = 'Cant be empty'
+        e.preventDefault()
+        return
+    }
+    msg.innerHTML = ''
+    
+    console.log('data sended')
+    fetch('/admin/new_subCatagories',{
+      method : 'POST',
+      headers : {'Content-Type' : 'application/json'},
+      body : JSON.stringify({name : cataInput})
+    })
+    .then((responds)=> responds.json())
+    .then((data)=>{
+      console.log('data reciced')
+      console.log(data)
+      const productSubCatagorie = document.getElementById('productSubCatagorie')
+      const newCataBtn = document.getElementById('newCataBtn')
+            const newCata_input = document.querySelector('.newCata_input')
+            const newCataButtons = document.querySelector('.newCataButtons')
+            newCataBtn.style.display = 'block'
+           newCata_input.style.display = 'none' 
+           newCataButtons.style.display = 'none' 
+           productSubCatagorie.innerHTML = ''
+           msg.innerHTML = data.message
+      data.catagory.forEach(element => {
+            const catagory = `
+                <option value="${element.name}">${element.name}</option>
+            `;
+            productSubCatagorie.innerHTML += catagory
+            cataInput.innerHTML = ''
+        })
+    }).catch((err)=>{
+      console.log(err)
+      msg.innerHTML = 'Something wrong.....'
+    })
+
+})
+    </script>
+    <script src="/admin/js/productAdd.js"></script>
+    <script src="/admin/js/products.js"> </script>
+
+
+
+<%- include('../partials/adminFoot') %>

@@ -1,0 +1,274 @@
+<%- include('../partials/adminHead') %>
+
+<body class="g-sidenav-show  bg-gray-200">
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+      <div class="sidenav-header">
+        <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+        <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
+          <img src="/img/logo/transparent-white.png" class="navbar-brand-img h-100" alt="main_logo">
+          <span class="ms-1 font-weight-bold text-white">WardrobeWhiz</span>
+        </a>
+      </div>
+      <hr class="horizontal light mt-0 mb-2">
+      <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+        <ul class="navbar-nav">
+           <!-- //Side Dashboard button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">dashboard</i>
+              </div>
+              <span class="nav-link-text ms-1">Dashboard</span>
+            </a>
+          </li>
+           <!-- //Side Users button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/users">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">table_view</i>
+              </div>
+              <span class="nav-link-text ms-1">Manage users</span>
+            </a>
+          </li>
+          <!-- //Side Products button -->
+         <li class="nav-item">
+          <a class="nav-link text-white " href="/admin/products">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">table_view</i>
+            </div>
+            <span class="nav-link-text ms-1">Products</span>
+          </a>
+        </li>
+           <!-- //Side Orders button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/orders">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">receipt_long</i>
+              </div>
+              <span class="nav-link-text ms-1">Orders</span>
+            </a>
+          </li>
+           <!-- //Side Coupons button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/coupons">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">view_in_ar</i>
+              </div>
+              <span class="nav-link-text ms-1">Manage coupons</span>
+            </a>
+          </li>
+           <!-- //Side Dashboard button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/sales_report">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+              </div>
+              <span class="nav-link-text ms-1">Sales Report</span>
+            </a>
+          </li>
+          <!-- side Banner button  -->
+          <li class="nav-item">
+            <a class="nav-link text-white active bg-gradient-primary " href="/admin/banner">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">notifications</i>
+              </div>
+              <span class="nav-link-text ms-1">Banner Management</span>
+            </a> 
+          </li>
+          <li class="nav-item mt-3">
+            <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Admin</h6>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/profile">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">person</i>
+              </div>
+              <span class="nav-link-text ms-1">Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white " type="button" data-bs-toggle="modal" data-bs-target="#signOutModal">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">login</i>
+              </div>
+              <span class="nav-link-text ms-1">Sign out</span>
+            </a>
+          </li>
+        <!-- logout Modal -->
+<div class="modal fade" id="signOutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign Out</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       Are you confirm to Logout
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
+        <form action="/admin/signout" method="post">
+          <button type="submit" class="btn" style="background-color: rgb(92, 84, 209); color: white;">Logout</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+        </ul>
+      </div>
+      <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+        
+      </div>
+    </aside>
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+      <!-- Navbar -->
+      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+      <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Admin</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Manage Banners</li>
+          </ol>
+          <h6 class="font-weight-bolder mb-0">Manage Banners</h6>
+        </nav>
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          
+          <ul class="navbar-nav  justify-content-end">
+            
+            
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </a>
+            </li>
+           
+            
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+      <!-- End Navbar -->
+
+      <div class="container-fluid p-6 view-products "  >
+       <div class="row">
+        <!-- 1st banner -->
+       
+            
+              
+              <div class="col-12 m-3 pt-4 ps-6 pb-4 " style="background-color: rgba(112, 202, 214, 0.336);">    
+                <div class="row">
+                  <div class="col-5 d-flex justify-content-center align-items-center">
+                    <h4>Home Screen Banner</h4>
+                  </div>
+                  <div class="col-7 d-flex justify-content-center align-items-center ">
+                    <label for="banner-img-view"><div class="banner-img-view "><img id="labelImg" src="/uploads/<%= main.image %>" alt=""></div></label>
+                    <form action="/admin/banner/<%= main._id %>?_method=PUT" method="post" enctype="multipart/form-data"> 
+                      <input type="file" id="banner-img-view" class="d-none" name="main" accept="image/*">
+                    <span><button type="submit" class="ms-3 btn bg-gradient-primary">Confirm Change</button></span></form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 m-3 pt-4 ps-6 pb-4 " style="background-color: rgba(112, 202, 214, 0.336);">    
+                <div class="row">
+                  <div class="col-5 d-flex justify-content-center align-items-center">
+                    <h4>Mens Collection Banner</h4>
+                  </div>
+                  <div class="col-7 d-flex justify-content-center align-items-center ">
+                    <label for="banner-img-view1"><div class="banner-img-view "><img id="labelImg1" src="/uploads/<%= mens.image %>" alt=""></div></label>
+                    <form action="/admin/banner/<%= mens._id %>?_method=PUT" method="post" enctype="multipart/form-data"> 
+                      <input type="file" id="banner-img-view1" class="d-none" name="mens" accept="image/*">
+                    <span><button type="submit" class="ms-3 btn bg-gradient-primary">Confirm Change</button></span></form>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-12 m-3 pt-4 ps-6 pb-4 " style="background-color: rgba(112, 202, 214, 0.336);">    
+                <div class="row">
+                  <div class="col-5 d-flex justify-content-center align-items-center">
+                    <h4>Womens Collection Banner</h4>
+                  </div>
+                  <div class="col-7 d-flex justify-content-center align-items-center ">
+                    <label for="banner-img-view2"><div class="banner-img-view "><img id="labelImg2" src="/uploads/<%= womens.image %>" alt=""></div></label>
+                    <form action="/admin/banner/<%= womens._id %>?_method=PUT" method="post" enctype="multipart/form-data"> 
+                      <input type="file" id="banner-img-view2" class="d-none" name="womens" accept="image/*">
+                    <span><button type="submit" class="ms-3 btn bg-gradient-primary">Confirm Change</button></span></form>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-12 m-3 pt-4 ps-6 pb-4 " style="background-color: rgba(112, 202, 214, 0.336);">    
+                <div class="row">
+                  <div class="col-5 d-flex justify-content-center align-items-center">
+                    <h4>Kids Collection  Banner</h4>
+                  </div>
+                  <div class="col-7 d-flex justify-content-center align-items-center ">
+                    <label for="banner-img-view3"><div class="banner-img-view "><img id="labelImg3" src="/uploads/<%= kids.image %>" alt=""></div></label>
+                    <form action="/admin/banner/<%= kids._id %>?_method=PUT" method="post" enctype="multipart/form-data"> 
+                      <input type="file" id="banner-img-view3" class="d-none" name="kids" accept="image/*">
+                    <span><button type="submit" class="ms-3 btn bg-gradient-primary">Confirm Change</button></span></form>
+                  </div>
+                </div>
+              </div>
+
+
+              
+             
+            
+
+            
+        
+       
+
+       
+
+       
+       </div>
+      </div>
+      
+    </main>
+    
+
+          <script>
+            //Banner
+            const labelImg = document.getElementById('labelImg')
+             const inputImg = document.getElementById('banner-img-view')
+          
+          inputImg.addEventListener("change",()=>{
+            console.log("hhhh")
+            labelImg.src = URL.createObjectURL(inputImg.files[0])
+          })
+
+          const labelImg1 = document.getElementById('labelImg1')
+             const inputImg1 = document.getElementById('banner-img-view1')
+          
+          inputImg1.addEventListener("change",()=>{
+            console.log("hhhh")
+            labelImg1.src = URL.createObjectURL(inputImg1.files[0])
+          })
+
+          const labelImg2 = document.getElementById('labelImg2')
+             const inputImg2 = document.getElementById('banner-img-view2')
+          
+          inputImg2.addEventListener("change",()=>{
+            console.log("hhhh")
+            labelImg2.src = URL.createObjectURL(inputImg2.files[0])
+          })
+
+          const labelImg3 = document.getElementById('labelImg3')
+             const inputImg3 = document.getElementById('banner-img-view3')
+          
+          inputImg.addEventListener("change",()=>{
+            console.log("hhhh")
+            labelImg3.src = URL.createObjectURL(inputImg3.files[0])
+          })
+</script>
+
+<%- include('../partials/adminFoot') %>

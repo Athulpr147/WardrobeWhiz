@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Login and Registration Form in HTML & CSS | CodingLab </title>
+    <link rel="stylesheet" href="/css/login_Reg.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+    <div class="close-button" id="close-button">
+         <a href="/"><i class="fas fa-times"></i></a>
+      </div>
+  <div class="container main-cont">
+   
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <img src="/img/main.jpg" alt="">
+        <div class="text">
+            <span class="text-1"> Explore Trendsetting Styles <br> and Accessories </span>
+            <span class="text-2">Let's get started</span>
+        </div>
+      </div>
+      <div class="back">
+        <img class="backImg" src="/img/main.jpg" alt="">
+        <div class="text">
+          <!-- <span class="text-1">Complete miles of journey <br> with one step</span>
+          <span class="text-2">Let's get started</span> -->
+        </div>
+      </div>
+    </div>
+    <div class="forms">
+        <div class="form-content">    
+
+      <!-- Registration Form -->
+        <div class="signup-form " id="signup-form" >
+          <div class="title">Signup</div>
+          
+        <form action="/register" method="post"> 
+          <% if (validate) { %>
+            <div class="signup-mge" style="color: red;"><%= validate %></div>
+           <% } %>
+            <div class="input-boxes">
+                <span class="validation-error" id="reg-name-valid-err"></span>
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Enter name" id="registeration_name" oninput="reg_name_error_msg()" name="name">
+                
+            </div>
+            
+            <span class="validation-error" id="reg-email-valid-err"></span>
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text" placeholder="Enter email" id="registeration_email" oninput="reg_email_error_msg()" name="email">
+                
+            </div>
+            <span class="validation-error" id="reg-phone-valid-err"></span>
+              <div class="input-box">
+              
+                <i class="fas fa-phone-alt" style="color: #7928e2;"></i>
+                <input type="number" placeholder="Enter mobile number" id="registeration_phone" oninput="reg_phone_error_msg()" name="phone">
+                
+              </div>
+              <span class="validation-error" id="reg-password-valid-err"></span>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Enter a password" id="registeration_password" oninput="reg_password_error_msg()" name="password">
+                
+                
+              </div>
+              <div class="button input-box">
+                <input type="submit" value="Submit" id="registeration_submit">
+              </div>
+              <div class="text sign-up-text">Already have an account? <label><a href="/login">Login</a></label></div>
+              
+              <!-- <div class="text sign-up-text"><label> <a href="/">Go Home</a></label></div> -->
+            </div>
+      </form>
+    </div>
+
+    <!-- Otp Verift -->
+    <div class="otp-form " id="otp-form" style="display: none;">
+      <!-- <form action="/verify_email" method="post" class="reg-otp-form"> -->
+        <div class="reg-otp-form">
+        <div class="reg-otp-title">OTP</div>
+        <div class="reg-otp-title">Verification Code</div>
+        <p class="reg-otp-message">We have sent a verification code to your Email address</p>
+        <p> <span style="font-size: 15px ; color: red;" id="otpErr"></span></p>
+       
+        <div class="reg-otp-inputs">
+            <input required id="otpInput" type="text" name="otp" maxlength="4" style= "text-align: center; height: 40px; border:  2px solid #7928e2">
+           
+        </div>
+        <button class="reg-otp-action" id="otpSubmit">Verify Me</button>
+        <p class="pt-3" id="resendOTP" style="display: none;"> <a href="/resendOTP_register">Resend OTP</a></p>
+        <p class="pt-3" id="timer"></p>
+      </div>
+    <!-- </form> -->
+    </div>
+    </div>
+    </div>
+  </div>
+  <script src="/js/register.js"></script>
+  <script src="js/preventFormSubbmission.js"></script>
+  <script src="/js/validation.js"></script>
+</html>

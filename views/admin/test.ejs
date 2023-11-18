@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+</head>
+<body>
+
+    <div class="addAdmin p-6 bg-warning d-flex" style="width: 200px; height: 200px;">
+        <form action="/admin/addAdmin" method="post" >
+            <h3>Add admin</h3>
+            <input type="text" placeholder="Admin name" name="name"><br>
+            <input type="text" placeholder="Email" name="email"><br>
+            <input type="passsword" placeholder="password" name="password"><br>
+            
+            <button>Submit</button>
+        </form>
+    </div>
+    <form action="/admin/bannerpost" method="post" enctype="multipart/form-data">
+        <input type="text" name="title">
+        <input type="file" name="main" accept="image/*">
+        <button>Submit</button>
+    </form>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

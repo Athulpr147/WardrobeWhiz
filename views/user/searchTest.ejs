@@ -1,0 +1,48 @@
+<%- include('../partials/mainHead.ejs') %>
+
+<div class="container" style="display: flex; justify-content: center; align-items: center;">
+    <h2 style="margin-top: 40px;">Search Users</h2>
+<input style="margin-top: 40px;" type="text" id="search-box" onkeyup="sendData(this)">
+<div style="margin-top: 40px; background-color: aqua; width: 300px; height: 500px;" id="searchResult">
+
+</div>
+</div>
+
+<script>
+    function sendData(e){
+
+        console.log('Sending request...');
+        const searchResult = document.getElementById('searchResult')
+        
+        if(e.value.length < 1 || e.value === " "){
+                searchResult.innerHTML = " "
+                return
+            }
+        fetch('search',{
+            method  : 'POST',
+            headers : {'Content-Type' : 'application/json'},
+            body    : JSON.stringify({payload : e.value})
+        })
+        .then(res => res.json())
+        .then(data => {
+            let payload = data.payload
+            console.log('Received response:', payload); 
+            console.log(payload) 
+            searchResult.innerHTML = " "
+            if(payload.length < 1 || payload === " "){
+                searchResult.innerHTML = "No search found"
+                return
+            }
+            payload.forEach((element,index) => {
+               console.log("index"+index)
+               searchResult.innerHTML += `<p>${element.name}</p>`
+            });
+        }).catch(error => {
+        console.error('Error:', error);
+        searchResult.innerHTML = "Database not responding"
+        })
+    }
+
+</script>
+
+<%- include('../partials/mainFoot.ejs') %>

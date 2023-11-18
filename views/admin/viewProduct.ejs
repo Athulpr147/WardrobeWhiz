@@ -1,0 +1,391 @@
+<%- include('../partials/adminHead') %>
+
+<body class="g-sidenav-show  bg-gray-200">
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+      <div class="sidenav-header">
+        <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+        <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
+          <img src="/img/logo/transparent-white.png" class="navbar-brand-img h-100" alt="main_logo">
+          <span class="ms-1 font-weight-bold text-white">WardrobeWhiz</span>
+        </a>
+      </div>
+      <hr class="horizontal light mt-0 mb-2">
+      <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+        <ul class="navbar-nav">
+           <!-- //Side Dashboard button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">dashboard</i>
+              </div>
+              <span class="nav-link-text ms-1">Dashboard</span>
+            </a>
+          </li>
+           <!-- //Side Users button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/users">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">table_view</i>
+              </div>
+              <span class="nav-link-text ms-1">Manage Users</span>
+            </a>
+          </li>
+          <!-- //Side Products button -->
+         <li class="nav-item">
+          <a class="nav-link text-white active bg-gradient-primary" href="/admin/products">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">table_view</i>
+            </div>
+            <span class="nav-link-text ms-1">Products</span>
+          </a>
+        </li>
+           <!-- //Side Orders button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/orders">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">receipt_long</i>
+              </div>
+              <span class="nav-link-text ms-1">Orders</span>
+            </a>
+          </li>
+           <!-- //Side Coupons button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/coupons">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">view_in_ar</i>
+              </div>
+              <span class="nav-link-text ms-1">Manage Coupons</span>
+            </a>
+          </li>
+           <!-- //Side Dashboard button -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/sales_report">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+              </div>
+              <span class="nav-link-text ms-1">Sales Report</span>
+            </a>
+          </li>
+          <!-- side Banner button  -->
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/banner">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">notifications</i>
+              </div>
+              <span class="nav-link-text ms-1">Manage Banner</span>
+            </a> 
+          </li>
+          <li class="nav-item mt-3">
+            <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Admin </h6>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/admin/profile">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">person</i>
+              </div>
+              <span class="nav-link-text ms-1">Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white " type="button" data-bs-toggle="modal" data-bs-target="#signOutModal">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">login</i>
+              </div>
+              <span class="nav-link-text ms-1">Sign out</span>
+            </a>
+            <!-- logout Modal -->
+<div class="modal fade" id="signOutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign Out</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       Are you confirm to Logout
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
+        <form action="/admin/signout" method="post">
+          <button type="submit" class="btn" style="background-color: rgb(92, 84, 209); color: white;">Logout</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+          </li>
+          
+        </ul>
+      </div>
+      <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+        
+      </div>
+    </aside>
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+      <!-- Navbar -->
+      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+        <div class="container-fluid py-1 px-3">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+              <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Admin</a></li>
+              <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a href="/admin/products">Products</a> / <%=product.name %></li>
+            </ol>
+            <h6 class="font-weight-bolder mb-0">Products management</h6>
+          </nav>
+          <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+            <!-- <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+              <div class="input-group input-group-outline">
+                <label class="form-label">Search Products</label>
+                <input type="text" class="form-control">
+              </div>
+            </div> -->
+            <ul class="navbar-nav  justify-content-end">
+              <!-- <li class="nav-item d-flex align-items-center">
+                <a class="btn btn-outline-primary btn-sm mb-0 me-3" id="add-product-btn" href="">Add Products</a>
+              </li> -->
+              
+              <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                  <div class="sidenav-toggler-inner">
+                    <i class="sidenav-toggler-line"></i>
+                    <i class="sidenav-toggler-line"></i>
+                    <i class="sidenav-toggler-line"></i>
+                  </div>
+                </a>
+              </li>
+              
+              
+             
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      
+
+        <!-- view Products? -->
+        <div class="container-fluid py-4 view-products-profile align-items-center" id="view-products-profile" >
+   
+            <div style="width: 100%;">
+                <div class="row">
+
+                  
+                    <!-- Section 1 -->
+                    <div class="col-8 ">
+                        <div class="row">
+                    <div class="col-6 ps-5 pt-5 pb-2"><h4><%=product.name %> </h4></div>
+                    <div class="col-6 ps-5 pt-5 pb-2"><% if(product.blocked){ %>
+                                                       <h4 style="color: red ; padding: 0px;"><span style="font-size: 15px;">Status :</span> BLOCKED </h4>
+                                                            <% }else{ %>    
+                                                              <h4 style="color: green;"><span style="font-size: 15px;">Status :</span> AVALIABLE </h4>
+                                                              <% } %> 
+                    </div>
+                    <div class="col-12 ps-5 pt-1 pb-2"><h5><%=product.brand %></h5></div>
+                    <div class="col-12 ps-5 pt-2 pb-2"><h5>₹ <%=product.price %></h5></div>
+                    <div class="col-12 ps-5 pt-2 pb-2"><h5>Discount Prize(<%= product.discount %> % off ) : ₹ <%= product.discountPrice %></h5></div>
+                    <div class="col-12 ps-5 pt-2 pb-2"><h5>Catagorie : <%= product.category %></h5></div>
+                    <div class="col-12 ps-5  pt-2 pb-2"><h5>Color : <%= product.colors %></h5></div>
+                    <div class="col-12 ps-5  pt-2 pb-2"><h5>Stock left : <%= product.stocks %></h5></div>
+                    <div class="col-12 ps-5 pt-2 pb-2"><h5><%=product.sub_category %></h5></div>
+                    <div class="col-12 ps-5 pt-4 pb-4"><p><%=product.decription %></p></div>
+                    <div class="col-12 ps-5 pt-2 pb-2 "><h6><span class="me-5">Sizes :</span>  <% product.size.forEach(element => { %>
+                                                        <span style=" padding:4px 10px 4px 10px; border: 1px solid rgb(94, 78, 78);"><%= element %></span>
+                                                                                       <% }) %> </h6> </div>
+                    <div class="col-12 ps-5 pt-2 pb-2"><button class="btn btn-dark ps-5 pe-5" id="product-edit-button">Edit</button>
+                      <button type="button" data-bs-toggle="modal" data-bs-target="#deleteProduct" class="btn btn-outline-dark ms-5 ">Delete product</button>
+                    </div>
+                        </div>
+                    </div>
+                          
+
+                    <!-- Section 2 -->
+                    <div class="col-4 ">
+                        <div class="row">
+                        <div class="col-12 d-flex justify-content-center pt-4"><div class="product-img-view-main"><img src="\uploads\<%=product.image[0] %>" alt=""style="width: 100%;" height="100%" > </div></div>
+                        <div class="col-4 d-flex  pt-2"><div class="product-img-view"><img src="\uploads\<%=product.image[1] %>" alt="" style="width: 100%;"> </div></div>
+                        <div class="col-4 d-flex  pt-2"><div class="product-img-view"><img src="\uploads\<%=product.image[2] %>" alt="" style="width: 100%;"> </div></div>
+                        <div class="col-4 d-flex  pt-2"><div class="product-img-view"><img src="\uploads\<%=product.image[3] %>" alt="" style="width: 100%;"> </div></div>
+                        
+                        
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+
+          <!-- Delete Product Modal -->
+          <div class="modal fade" id="deleteProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
+                  <a href="/admin/delete_product/<%= product._id %>"><button class="btn btn-danger">Delete</button></a>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+            <!-- Edit Product -->
+            <div class="container-fluid py-4 edit-products-profile" id="edit-products-page">
+
+              <form action="/admin/editProducts/<%=product._id %>?_method=PUT" method="post" enctype="multipart/form-data">
+              <div style="width: 100%;">
+                <div class="row">
+                  
+                    <!-- Section 1 -->
+                    <div class="col-8 ">
+                        <div class="row product-add-input">
+                    <div class="col-4 ps-5 pt-5 pb-2"><h4>Product name </h4></div>
+                    <div class="col-8 ps-5 pt-5 pb-2">: <input type="text" id="proname" placeholder="Product name"  value="<%=product.name %>" name="name"></div>
+                    <div class="col-4 ps-5 pt-2 pb-2"><h5>Brand</h5></div>
+                    <div class="col-8 ps-5 pt-2 pb-2">: <input type="text" id="probrand" placeholder="Product brand" value="<%=product.brand %>" name="brand"></div>
+                    <div class="col-4 ps-5 pt-2 pb-2"><h5>₹ Price</h5></div>
+                    <div class="col-8 ps-5 pt-2 pb-2">: <input type="number" id="proprice" oninput="discountCalculationEdit()" id="editInputPrice" placeholder="Product Price" value="<%= product.price %>" name="price"></div>
+                    <div class="col-4 ps-5 pt-2 pb-2"><h5>Category</h5></div>
+                    <div class="col-8 ps-5 pt-2 pb-2">: 
+                      
+                      <!-- <select id="productCatagorie" name="category" ><option value="Mens">Mens</option><option value="Womens">Womens</option><option value="Kids">Kids</option></select> -->
+                      <% if (!catagories) { %>
+                        <select id="productCategory" name="category">
+                          <option value="Default">No Categories</option>
+                        </select>
+                      <% } else { %>
+                        <select id="productCategory" name="category">
+                          <% catagories.forEach((category) => { %>
+                            <option value="<%= category.name %>" 
+                              <% if (product.category === category.name) { %> selected 
+                                <% } %>    >
+                              <%= category.name %>
+                            </option>
+                          <% }) %>
+                        </select>
+                      <% } %>
+
+                     
+                    </div>
+                    
+                    <div class="col-4 ps-5 pt-2 pb-2"><h5>Color</h5></div>
+                    <div class="col-8 ps-5 pt-2 pb-2">: <input id="color" type="text" placeholder="Product Color" value="<%=product.colors %>" name="colors"></div>
+                    <div class="col-4 ps-5 pt-2 pb-2"><h5>Quantity</h5></div>
+                    <div class="col-8 ps-5 pt-2 pb-2">: <input type="number" id="qty" placeholder="Quantity" value="<%=product.stocks %>" name="stocks"></div>
+                    <div class="col-4 ps-5 pt-2 pb-2"><h5>Sub category</h5></div>
+                    <div class="col-8 ps-5 pt-2 pb-2">: <select id="productSubCatagorie" class="styled-select" name="sub_category" >
+                      <% if (subcatagory) { %>
+                        <% subcatagory.forEach(element => { %>
+                          <option value="<%= element.name %>"><%= element.name %></option>
+                        <% }) %>
+                      <% } %>
+                    </select></div>
+                    <div class="col-4 ps-5 pt-2 pb-2"><h5>Status :</h5></div>
+                    <div class="col-8 ps-5 pt-2 pb-2 mydict"> 
+                      <% if(product.blocked){ %>
+                        <div>
+                          <label>
+                            <input type="radio" name="blocked" value="true" checked="">
+                            <span>Deleted</span>
+                          </label>
+                          <label>
+                            <input type="radio" name="blocked" value="false">
+                            <span>Avalible</span>
+                          </label>
+                        </div>
+                        <% }else{ %>
+                          <div>
+                            <label>
+                              <input type="radio" name="blocked" value="true" >
+                              <span>Delete</span>
+                            </label>
+                            <label>
+                              <input type="radio" name="blocked" value="false" checked="">
+                              <span>Visible</span>
+                            </label>
+                          </div>
+                          <% } %></span>
+                    </div>
+                    <div class="col-4 ps-5 pt-5 pb-2"><h4>Description </h4></div>
+                    <div class="col-8 ps-5 pt-5 pb-2">: <textarea name="decription" id="productDecription" rows="4" cols="40"><%=product.decription %></textarea></div>
+                    <div class="col-12 ps-5 pt-2 pb-2 d-flex "><h6 class="me-6">Sizes</h6>
+                                                                            
+                                                                            <h5>S</h5><input class="me-5" type="checkbox" <% if (product.size.includes('S')) { %> checked <% } %> name="size[]" id="size-s" value="S" style="width: 26px;">
+                                                                            <h5>M</h5><input class="me-5" type="checkbox" <% if (product.size.includes('M')) { %> checked <% } %> name="size[]" id="size-m" value="M" style="width: 26px;">
+                                                                            <h5>L</h5><input class="me-5" type="checkbox" <% if (product.size.includes('L')) { %> checked <% } %> name="size[]" id="size-l" value="L" style="width: 26px;">
+                                                                            <h5>XL</h5><input class="me-5" type="checkbox" <% if (product.size.includes('XL')) { %> checked <% } %> name="size[]" id="size-xl" value="XL" style="width: 26px;">
+                                                                            <h5>XXL</h5><input class="me-5" type="checkbox" <% if (product.size.includes('XXL')) { %> checked <% } %> name="size[]" id="size-xxl" value="XXL" style="width: 26px;">
+                                                                            <h5>XXXL</h5><input class="me-5" type="checkbox" <% if (product.size.includes('XXXL')) { %> checked <% } %> name="size[]" id="size-xxxl" value="XXXL" style="width: 26px;">
+                                                                                  
+                                                                                   
+                                                                                 
+                                            
+                                                                          </div>
+                                                                          <div class="col-12 ps-5 pt-2 pb-2"><p style="color: red; font-weight: 600;" id="add-prod-error"></p></div>
+                    <div class="col-12 ps-5 pt-2 pb-2"><button class="btn btn-dark ps-5 pe-5" id="add-edit-submitBtn">Confirm Edit</button>
+                      <button type="button" class="btn btn-outline-dark ms-5 " id="cancel-product-edit">Cancel edit</button></div>
+
+                        </div>
+                    </div>
+    
+    
+                    <!-- Section 2 -->
+                    <div class="col-4 ">
+                        <div class="row upload-img">
+                        <div class="col-12 d-flex justify-content-center pt-4"><label for="img1"><div class="product-img-view-main"><img id="upload-img1" src="\uploads\<%=product.image[0] %>" alt="#" style="width: 100%;height: 100%; object-fit: cover;" > </div></label></div>
+                        <div class="col-4 d-flex  pt-2"><label for="img2"><div class="product-img-view"> <img id="upload-img2" src="\uploads\<%=product.image[1] %>" alt="#" style="width: 100%;height: 100%; object-fit: cover;" ></div></label></div>
+                        <div class="col-4 d-flex  pt-2"><label for="img3"><div class="product-img-view"> <img id="upload-img3" src="\uploads\<%=product.image[2] %>" alt="#" style="width: 100%;height: 100%; object-fit: cover;" ></div></label></div>
+                        <div class="col-4 d-flex  pt-2"><label for="img4"><div class="product-img-view"> <img id="upload-img4" src="\uploads\<%=product.image[3] %>" alt="#" style="width: 100%;height: 100%; object-fit: cover;" ></div></label></div>
+                        <div class="col-12"><input type="file" id="img1" class="file-input" name="image1" accept="image/*"></div>
+                        <div class="col-12"><input type="file" id="img2" class="file-input" name="image2"></div>
+                        <div class="col-12"><input type="file" id="img3" class="file-input" name="image3"></div>
+                        <div class="col-12"><input type="file" id="img4" class="file-input" name="image4"></div>
+                        
+                        
+                       
+                        </div>
+
+                        <div class="row">
+                          <div class="col-5 pt-5"><h5>Discount(%)</h5></div>
+                          <div class="col-6 pt-5"><h5> : <input maxlength="2" type="number" oninput="discountCalculationEdit()" style="width: 140px; height: 40px; outline: none;" name="discount" value="<%= product.discount %>" placeholder=" In %" id="discountEdit"></h5></div>
+                          <div class="col-5 pt-4"><h5>FinalPrize </h5></div>
+                          <div class="col-6 pt-4"><h5> : ₹<span id="showPriceEdit"><%= product.discountPrice %></span>.00 </h5></div>
+                          <div class="col d-none"><input  type="number" style="width: 140px; height: 40px;" value="<%= product.discountPrice %>" id="discountedPrizeEdit" name="discountPrice" ></div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+          </form>
+              
+            </div>
+
+              <!-- Edit Product End -->
+
+          
+        </div>
+            
+      </div>
+      
+
+    </main>
+
+
+   
+    <script>
+      
+    </script>
+
+   <script src="/admin/js/products.js"></script>
+    <script src="/admin/js/productsHelp.js"></script>
+    <script src="/admin/js/script.js"></script>
+<%- include('../partials/adminFoot') %>
