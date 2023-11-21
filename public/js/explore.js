@@ -215,8 +215,8 @@ function updatePaginationBtn(totalPages, currentPage) {
         const prevButton = document.createElement('button');
         prevButton.innerHTML = 'Previous';
         prevButton.addEventListener('click', () => {
-            filter(cata, sortValue, currentPage - 1);
-        });
+            filter(cata, sortValue, currentPage - 1)
+        })
         paginationContainer.appendChild(prevButton);
     }
 

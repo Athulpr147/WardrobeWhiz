@@ -2,10 +2,10 @@
   "name": "wardrobewhiz",
   "version": "1.0.0",
   "description": "Project E-Commerce Website",
-  "main": "script.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon script.js"
+    "start": "nodemon app.js"
   },
   "author": "Athul PR",
   "license": "ISC",
