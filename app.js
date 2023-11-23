@@ -6,8 +6,8 @@ const cookieParser = require('cookie-parser')
 const methodOverride = require('method-override')
 const path = require('path')
 
-//PORT NUMBER
-const PORT = process.env.PORT || 8080
+//PORT NUMBER 
+const PORT = process.env.PORT || 8080  
 //CONNECTING DATABASE
  connectDB()
 //MIDDLEWARES

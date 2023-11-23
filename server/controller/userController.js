@@ -306,9 +306,9 @@ exports.send_otp = asyncHandler (async(req,res)=>{
 
         const countryCode = '+91'
         const sendingNumber = countryCode + isUser.phone        
-        const sendOtp = async (sendingNumber) => {
+        const sendOtp = async (sendingNumber) => { //line 309
         try {
-        await client.verify.v2.services(service_SID).verifications.create({
+        await client.verify.v2.services(service_SID).verifications.create({   //line 311
         to: sendingNumber ,
           channel: `sms`,
          
@@ -322,7 +322,7 @@ exports.send_otp = asyncHandler (async(req,res)=>{
 
         }
      
-          await sendOtp(sendingNumber)
+          await sendOtp(sendingNumber)    // line 325
          
         
       //  sendOTP(sendingNumber,genOTP)
@@ -545,12 +545,9 @@ exports.enter_otp = asyncHandler (async(req,res)=>{
                            redirectTo : '/login',
                            message : ' OTP is not matching '
                         })
-                        return
-                        
+                        return       
                        }
-
-
-         }
+         } 
       })
    }else if(otpInput.length == 4){
       const OTPtoken = req.cookies.otpToken
