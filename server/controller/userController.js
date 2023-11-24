@@ -26,7 +26,7 @@ const Mailgen = require('mailgen')
 const fs = require('fs')
 const Razorpay = require('razorpay'); 
 
-//Modules
+//Modules 
 const addToCart = require('../modules/addToCart')
 const { LegacyContentInstance } = require('twilio/lib/rest/content/v1/legacyContent')
 const p = require('../modules/console')
@@ -37,7 +37,7 @@ const { forEach } = require('lodash')
 
 const accountSid = process.env.TWILIO_SID
 const authToken = process.env.TWILIO_AUTH_TOKEN
-const client = require("twilio")(accountSid, authToken)
+const client = require("twilio")(accountSid, authToken) 
 const service_SID = process.env.Messaging_Service_SID
 
 //Razor pay
@@ -284,69 +284,79 @@ exports.send_otp = asyncHandler (async(req,res)=>{
         res.render('user/forgotPasswordInput',{otpSended , validate , banner})
         return
         
-      }
-      //If user enter mobile
-       else if(phoneNumber){
-         let userInput = phoneNumber
-         const isUser = await CustomerDetails.findOne({phone : userInput})  
-         //Checking User exist with that phone number
-         if(!isUser){
-         console.log("no user found-->") 
-         const validate = "Phone number not registered"
-         res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+      }else{
+         console.log("no user found")
+         const validate = "Something Went Wrong"
+         res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private')
          const otpSended = false
-         const main = await Banner.findOne({name : "main"})
+           const main = await Banner.findOne({name : "main"})
            const banner = { main : main.image }
-         es.status(401).render('user/forgotPasswordInput',{otpSended,validate , banner})
+         res.status(401).render('user/forgotPasswordInput',{validate , otpSended ,banner})
          return 
-         }
-         const userId_type = { userId : isUser._id, email : false }
-         res.cookie('userId_type',userId_type,{httpOnly : true})
+      }
+   //    //If user enter mobile
+   //     else if(phoneNumber){
+   //       let userInput = phoneNumber
+   //       const isUser = await CustomerDetails.findOne({phone : userInput})  
+   //       //Checking User exist with that phone number
+   //       if(!isUser){
+   //       console.log("no user found-->") 
+   //       const validate = "Phone number not registered"
+   //       res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+   //       const otpSended = false
+   //       const main = await Banner.findOne({name : "main"})
+   //         const banner = { main : main.image }
+   //       es.status(401).render('user/forgotPasswordInput',{otpSended,validate , banner})
+   //       return 
+   //       }
+   //       const userId_type = { userId : isUser._id, email : false }
+   //       res.cookie('userId_type',userId_type,{httpOnly : true})
         
 
-        const countryCode = '+91'
-        const sendingNumber = countryCode + isUser.phone        
-        const sendOtp = async (sendingNumber) => { //line 309
-        try {
-        await client.verify.v2.services(service_SID).verifications.create({   //line 311
-        to: sendingNumber ,
-          channel: `sms`,
+   //      const countryCode = '+91'
+   //      const sendingNumber = countryCode + isUser.phone        
+   //      const sendOtp = async (sendingNumber) => { //line 309
+   //      try {
+   //      await client.verify.v2.services(service_SID).verifications.create({   //line 311
+   //      to: sendingNumber ,
+   //        channel: `sms`,
          
-         })
-          console.log("1st OTP send Sucess") 
-         } catch (error) {
+   //       })
+   //        console.log("1st OTP send Sucess") 
+   //       } catch (error) {
 
-           console.log(error); 
+   //         console.log(error); 
        
-         }
+   //       }
 
-        }
+   //      }
      
-          await sendOtp(sendingNumber)    // line 325
+   //        await sendOtp(sendingNumber)    // line 325
          
         
-      //  sendOTP(sendingNumber,genOTP)
+   //    //  sendOTP(sendingNumber,genOTP)
        
       
-        const otpDetails = {
-         senderID : isUser._id,
-         sendedNumber : sendingNumber
-        }
+   //      const otpDetails = {
+   //       senderID : isUser._id,
+   //       sendedNumber : sendingNumber
+   //      }
         
-        console.log(isUser._id)
-        const otpToken = jwt.sign(otpDetails , process.env.OTP_Token_pass,{expiresIn : "5m"})
+   //      console.log(isUser._id)
+   //      const otpToken = jwt.sign(otpDetails , process.env.OTP_Token_pass,{expiresIn : "5m"})
       
-        res.cookie("otpToken",otpToken,{httpOnly : true})
+   //      res.cookie("otpToken",otpToken,{httpOnly : true})
 
-        const otpSended = true   // if it is true then otp enter modal will triggger
+   //      const otpSended = true   // if it is true then otp enter modal will triggger
         
-        res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
-        const validate = " "
-        const main = await Banner.findOne({name : "main"})
-           const banner = { main : main.image }
-        res.render('user/forgotPasswordInput',{otpSended , validate , otpDetails , banner})
+   //      res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+   //      const validate = " "
+   //      const main = await Banner.findOne({name : "main"})
+   //         const banner = { main : main.image }
+   //      res.render('user/forgotPasswordInput',{otpSended , validate , otpDetails , banner})
        
-   }
+   // }
+
     
    } catch (error) {
       // res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
@@ -507,49 +517,50 @@ exports.cancel_otp = asyncHandler(async(req,res)=>{
 exports.enter_otp = asyncHandler (async(req,res)=>{ 
    try {
          const otpInput = req.body.otp
-         if(otpInput.length == 6){
-      const OTPtoken = req.cookies.otpToken
-      jwt.verify(OTPtoken,process.env.OTP_Token_pass,async (error,decoded)=>{
-         if(error){
-            res.json("i dont know "+error)
-         }else{
+      //    if(otpInput.length == 6){
+      // const OTPtoken = req.cookies.otpToken
+      // jwt.verify(OTPtoken,process.env.OTP_Token_pass,async (error,decoded)=>{
+      //    if(error){
+      //       res.json("i dont know "+error)
+      //    }else{
 
-         const user = decoded
-         console.log(user)
-         const userId = user.senderID
-         const number = user.sendedNumber
-         console.log(userId)
-         const otp = req.body.otp
-         console.log(otp) 
-         const verificationCheck = await client.verify.v2.services(service_SID).verificationChecks.create({
-                   to: number,
-                   code: otp,
-                 })
+      //    const user = decoded
+      //    console.log(user)
+      //    const userId = user.senderID
+      //    const number = user.sendedNumber
+      //    console.log(userId)
+      //    const otp = req.body.otp
+      //    console.log(otp) 
+      //    const verificationCheck = await client.verify.v2.services(service_SID).verificationChecks.create({
+      //              to: number,
+      //              code: otp,
+      //            })
 
-                 if (verificationCheck.status === 'approved') {   
-                         console.log('OTP is valid');
-                         const userData = {userId : userId}
-                         const userIdToken = jwt.sign(userData , "123" , {expiresIn : "2m"})
-                         res.cookie("userIdToken",userIdToken,{ httpOnly : true })
+      //            if (verificationCheck.status === 'approved') {   
+      //                    console.log('OTP is valid');
+      //                    const userData = {userId : userId}
+      //                    const userIdToken = jwt.sign(userData , "123" , {expiresIn : "2m"})
+      //                    res.cookie("userIdToken",userIdToken,{ httpOnly : true })
                          
-                         res.send({
-                           sucess : true,
-                           redirectTo : '/change_password',
-                           message : 'Success! The OTP has been successfully validated'
-                        })
-                        return
+      //                    res.send({
+      //                      sucess : true,
+      //                      redirectTo : '/change_password',
+      //                      message : 'Success! The OTP has been successfully validated'
+      //                   })
+      //                   return
 
-                       } else {
-                        res.send({
-                           sucess : false,
-                           redirectTo : '/login',
-                           message : ' OTP is not matching '
-                        })
-                        return       
-                       }
-         } 
-      })
-   }else if(otpInput.length == 4){
+      //                  } else {
+      //                   res.send({
+      //                      sucess : false,
+      //                      redirectTo : '/login',
+      //                      message : ' OTP is not matching '
+      //                   })
+      //                   return       
+      //                  }
+      //    } 
+      // })
+   // }
+   //  if(otpInput.length == 4){
       const OTPtoken = req.cookies.otpToken
       jwt.verify(OTPtoken,process.env.OTP_Token_pass,async (error,decoded)=>{
          if(error){
@@ -580,7 +591,7 @@ exports.enter_otp = asyncHandler (async(req,res)=>{
          }
       })
 
-   }
+   // }
          
          
        } catch (error) {
