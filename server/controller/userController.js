@@ -35,10 +35,10 @@ const { forEach } = require('lodash')
 
 //TWILIO MObile OTP Confi
 
-const accountSid = process.env.TWILIO_SID
-const authToken = process.env.TWILIO_AUTH_TOKEN
-const client = require("twilio")(accountSid, authToken) 
-const service_SID = process.env.Messaging_Service_SID
+// const accountSid = process.env.TWILIO_SID
+// const authToken = process.env.TWILIO_AUTH_TOKEN
+// const client = require("twilio")(accountSid, authToken) 
+// const service_SID = process.env.Messaging_Service_SID
 
 //Razor pay
 
