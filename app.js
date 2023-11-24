@@ -7,7 +7,7 @@ const methodOverride = require('method-override')
 const path = require('path')
 
 //PORT NUMBER 
-const PORT = process.env.PORT || 8080  
+const PORT = process.env.PORT || 7070   
 //CONNECTING DATABASE
  connectDB()
 //MIDDLEWARES

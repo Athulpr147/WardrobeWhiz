@@ -750,8 +750,8 @@ try {
    }                                                            
    transporter.sendMail(message) 
 //Sending email otp ended
-
- res.redirect('/register?otpSended=true')
+p('itsss ok' )
+ res.redirect('/register?otpSended=true') 
  
    
 } catch (error) {
