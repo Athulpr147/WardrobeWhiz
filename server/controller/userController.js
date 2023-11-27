@@ -51,12 +51,13 @@ const razorpay = new Razorpay({
 //Home Page (1)
 exports.home = asyncHandler( async(req,res)=>{
      try {
+      console.log('Home')
         const main = await Banner.findOne({name : "main"})
         const mens = await Banner.findOne({name : "mens"})
         const womens = await Banner.findOne({name : "womens"})
         const kids = await Banner.findOne({name : "kids"})
         const banner = { main : main.image , mens : mens.image , womens : womens.image , kids : kids.image}
-        console.log(banner.kids)
+       
       //sending products data to Home page
       const products = await Products.find({ blocked: false }).sort({ createdAt: -1 }).limit(9).exec()
       
@@ -113,7 +114,7 @@ exports.login = asyncHandler(async (req,res)=>{
         const womens = await Banner.findOne({name : "womens"})
         const kids = await Banner.findOne({name : "kids"})
         const banner = { main : main.image , mens : mens.image , womens : womens.image , kids : kids.image}
-
+      console.log('Tryed to login')
       const {email, password} = req.body
    console.log(email)
    //Check user is exist or not
