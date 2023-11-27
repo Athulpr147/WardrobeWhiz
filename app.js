@@ -32,6 +32,6 @@ app.get('*',(req,res)=>{
     res.send("Oops 404")
 })
 
-app.listen(PORT,()=>{
+app.listen(process.env.PORT,()=>{
  console.log(`Server started on http://localhost:${PORT}`) 
 })
