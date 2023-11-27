@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 
 const isUserAuthroized = asyncHandler(async (req,res,next)=>{
     let token = req.cookies.token
-    jwt.verify(token,process.env.TokenPasskey,(error,decoded)=>{
+    jwt.verify(token,'logintokenpass',(error,decoded)=>{
         if(error){
             console.log("User is not Authroized")
             res.status(401).redirect('/login?notLogined')
