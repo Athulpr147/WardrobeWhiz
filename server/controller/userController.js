@@ -161,9 +161,15 @@ exports.login = asyncHandler(async (req,res)=>{
    // res.render('user/index',{userDetails,validate,banner})
    res.redirect('/')
    } catch (error) {
+      const main = await Banner.findOne({name : "main"})
+        const mens = await Banner.findOne({name : "mens"})
+        const womens = await Banner.findOne({name : "womens"})
+        const kids = await Banner.findOne({name : "kids"})
+        const banner = { main : main.image , mens : mens.image , womens : womens.image , kids : kids.image}
+      const validate = "Login credentials mismatch"
       res.redirect('/login')
       res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private')
-      res.send("Login error")
+      res.status(401).render('user/login',{validate , banner})
    }
 })
 
