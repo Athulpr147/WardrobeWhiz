@@ -151,7 +151,7 @@ exports.login = asyncHandler(async (req,res)=>{
       name : user.name,
       email : user.email
    }
-   const token = jwt.sign(userData,process.env.TokenPasskey,{ expiresIn : "500m"})
+   const token = jwt.sign(userData,'logintokenpass',{ expiresIn : "500m"})
    res.cookie("token",token,{httpOnly : true})
 
    console.log("Login Sucess")
