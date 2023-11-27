@@ -167,7 +167,6 @@ exports.login = asyncHandler(async (req,res)=>{
         const kids = await Banner.findOne({name : "kids"})
         const banner = { main : main.image , mens : mens.image , womens : womens.image , kids : kids.image}
       const validate = error
-      res.redirect('/login')
       res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private')
       res.status(401).render('user/login',{validate , banner})
    }
