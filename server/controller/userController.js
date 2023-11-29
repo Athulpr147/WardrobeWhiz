@@ -279,7 +279,7 @@ exports.send_otp = asyncHandler (async(req,res)=>{
         const userId_type = { userId : isUser._id, email : true }
         res.cookie('userId_type',userId_type,{httpOnly : true})
 
-        const otpToken = jwt.sign(otpDetails , process.env.OTP_Token_pass,{expiresIn : "2m"})
+        const otpToken = jwt.sign(otpDetails ,'otpPassword',{expiresIn : "2m"})
         res.cookie("otpToken",otpToken,{httpOnly : true})
 
         const otpSended = true   // if it is true then otp enter modal will triggger
@@ -349,7 +349,7 @@ exports.send_otp = asyncHandler (async(req,res)=>{
    //      }
         
    //      console.log(isUser._id)
-   //      const otpToken = jwt.sign(otpDetails , process.env.OTP_Token_pass,{expiresIn : "5m"})
+   //      const otpToken = jwt.sign(otpDetails , 'otpPassword',{expiresIn : "5m"})
       
    //      res.cookie("otpToken",otpToken,{httpOnly : true})
 
@@ -497,7 +497,7 @@ exports.cancel_otp = asyncHandler(async(req,res)=>{
    try {
       const otpToken = req.cookies.otpToken
       console.log("from cancel : "+otpToken)
-      jwt.verify(otpToken , process.env.OTP_Token_pass, async (error,decoded)=>{
+      jwt.verify(otpToken , 'otpPassword', async (error,decoded)=>{
          if(error){
             res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
             res.redirect('/forgot_password_')
@@ -525,7 +525,7 @@ exports.enter_otp = asyncHandler (async(req,res)=>{
          const otpInput = req.body.otp
       //    if(otpInput.length == 6){
       // const OTPtoken = req.cookies.otpToken
-      // jwt.verify(OTPtoken,process.env.OTP_Token_pass,async (error,decoded)=>{
+      // jwt.verify(OTPtoken,'otpPassword',async (error,decoded)=>{
       //    if(error){
       //       res.json("i dont know "+error)
       //    }else{
@@ -568,7 +568,7 @@ exports.enter_otp = asyncHandler (async(req,res)=>{
    // }
    //  if(otpInput.length == 4){
       const OTPtoken = req.cookies.otpToken
-      jwt.verify(OTPtoken,process.env.OTP_Token_pass,async (error,decoded)=>{
+      jwt.verify(OTPtoken,'otpPassword',async (error,decoded)=>{
          if(error){
             res.json("i dont know "+error)
          }else{
@@ -632,7 +632,7 @@ exports.change_password = asyncHandler(async (req,res)=>{
    try {
       const {password1,password2} = req.body
       const OTPtoken = req.cookies.otpToken
-      jwt.verify(OTPtoken,process.env.OTP_Token_pass,async (error,decoded)=>{
+      jwt.verify(OTPtoken,'otpPassword',async (error,decoded)=>{
          if(error){
             res.send("Error ctrl 411"+error)
          }else{
