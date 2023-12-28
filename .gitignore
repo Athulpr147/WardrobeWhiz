@@ -1,3 +1,4 @@
 .env
 WardrobeWhiz_key.pem
 Final_key.pem
+node_modules

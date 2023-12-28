@@ -33,7 +33,7 @@ const p = require('../modules/console')
 const { forEach } = require('lodash')
 
 
-//TWILIO MObile OTP Confi
+//TWILIO MObile OTP Config
 
 // const accountSid = process.env.TWILIO_SID
 // const authToken = process.env.TWILIO_AUTH_TOKEN
@@ -102,8 +102,6 @@ exports.login_page = asyncHandler( async(req,res)=>{
       console.log(error) 
    }
 })
-
-
 
 
 //Login form POST-Method  (3)
